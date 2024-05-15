@@ -35,7 +35,7 @@ Device not tested at all. FFB protocol unknown. May be working, may be not. Cont
 | Asetek       | Forte                | 2433 | f301 |Not tested| ? | ? | |
 | Asetek       | La Prima             | 2433 | f303 |Not tested| ? | ? | |
 | Asetek       | Tony Kannan          | 2433 | f306 |Not tested| ? | ? | |
-| Cammus       | C5                   | 3416 | 0301 | Silver   | PIDFF[^1] without a7 descriptor | cammus-ff[^9] | Temporarily broken. [1](#duration-issue), [2](#joystick-detection) |
+| Cammus       | C5                   | 3416 | 0301 | Silver   | PIDFF[^1] without a7 descriptor | cammus-ff[^9] | Works [1](#duration-issue), [2](#joystick-detection) |
 | Fanatec      | CSL Elite            | 0eb7 | 0e03 | Gold     | Proprietary     | hid-fanatecff[^7] | |
 | Fanatec      | CSL Elite (PS4)      | 0eb7 | 0005 | Gold     | Proprietary     | hid-fanatecff[^7] | |
 | Fanatec      | DD                   | 0eb7 | 0020 | Gold     | Proprietary     | hid-fanatecff[^7] | |
