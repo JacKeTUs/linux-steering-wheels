@@ -128,7 +128,20 @@ Also, for devices not present in list, Steam uses sandboxed SDL1.2 to detect dev
 
 [Link to the Proton issue](https://github.com/ValveSoftware/Proton/issues/5126)
 
+Also, recent updates to SDL created SDL Hint variable to dynamically extend wheel devices list[^15]. You need to just export `SDL_JOYSTICK_WHEEL_DEVICES=0x<VID>/0x<PID>,0x<VID2>/0x<PID2>` before you launching something.
 
+## Steam settings for ~all devices and ~all games
+1. Turn Steam Input off in game settings
+2. Use recent Proton version for non-native games. 7 version known for having issues with HID devices detection. 
+3. If game does not detect your device, try setting SDL Hint[^15] environment variable in game launch command like so:
+    ```
+    SDL_JOYSTICK_WHEEL_DEVICES=0x<VID>/0x<PID> %command%
+    ```
+    This is only relevant for devices which are, for various reasons, not in a SDL whitelist[^14] (yet), or for older Steam runtime versions which does not have updated SDL library.
+
+4. If none of that worked, create an issue, where members of the community will try to help you with your specific game
+
+[^15]: https://github.com/libsdl-org/SDL/issues/8595
 
 ## DISCLAIMER
 
