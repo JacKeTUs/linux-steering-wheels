@@ -29,10 +29,10 @@ Device not tested at all. FFB protocol unknown. May be working, may be not. Cont
 
 
 ## Table of compatibility
-| Manufacturer | Device names         | VID  | PID  | Support  | Protocol        | Driver needed | Instructions (if needed)|
+| Manufacturer | Device names         | VID  | PID  | Support  | Protocol        | Driver needed | Proton compatibility |
 |--------------|----------------------|------|------|----------|-----------------|---------|--------------|
 | Asetek       |                      |      |      |Not tested| ? | ? | |
-| Cammus       | C5                   | 3416 | 0301 | Silver   | PIDFF[^1] without a7 descriptor | cammus-ff[^9] | |
+| Cammus       | C5                   | 3416 | 0301 | Silver   | PIDFF[^1] without a7 descriptor | cammus-ff[^9] | Temporarily broken. [1](#duration-issue), [2](#joystick-detection) |
 | Fanatec      | CSL Elite            | 0eb7 | 0e03 | Gold     | Proprietary     | hid-fanatecff[^7] | |
 | Fanatec      | CSL Elite (PS4)      | 0eb7 | 0005 | Gold     | Proprietary     | hid-fanatecff[^7] | |
 | Fanatec      | DD                   | 0eb7 | 0020 | Gold     | Proprietary     | hid-fanatecff[^7] | |
@@ -43,29 +43,29 @@ Device not tested at all. FFB protocol unknown. May be working, may be not. Cont
 | Fanatec      | Podium DD1           | 0eb7 | 0006 | Silver   | Proprietary     | hid-fanatecff[^7] | |
 | Fanatec      | Podium DD2           | 0eb7 | 0007 | Silver   | Proprietary     | hid-fanatecff[^7] | |
 | Fanatec      | CSR Elite            | 0eb7 | 0011 | Silver   | Proprietary     | hid-fanatecff[^7] | |
-| Logitech     | MOMO Wheel           | 046d | c295 | Platinum | Logitech FF[^2] | hid-lg4ff (limited effects)<br>new-lg4ff[^3] | |
-| Logitech     | DFP                  | 046d | c298 | Platinum | Logitech FF[^2] | hid-lg4ff (limited effects)<br>new-lg4ff[^3] | |
-| Logitech     | DFGT                 | 046d | c29a | Platinum | Logitech FF[^2] | hid-lg4ff (limited effects)<br>new-lg4ff[^3] | |
-| Logitech     | G25                  | 046d | c29b | Platinum | Logitech FF[^2] | hid-lg4ff (limited effects)<br>new-lg4ff[^3] | |
-| Logitech     | G27                  | 046d | c29b | Platinum | Logitech FF[^2] | hid-lg4ff (limited effects)<br>new-lg4ff[^3] | |
-| Logitech     | G29                  | 046d | c24f | Platinum | Logitech FF[^2] | hid-lg4ff (limited effects)<br>new-lg4ff[^3] | |
-| Logitech     | G920                 | 046d | c262 | Native   | Logitech FF[^2] with HIDPP | hid-logitech-hidpp[^10] | |
-| Logitech     | G923 (Xbox edition)  | 046d | c26d | Native   | Logitech FF[^2] with HIDPP | hid-logitech-hidpp[^10] | |
-| Logitech     | G923 (PS edition)    | 046d | c267 | Platinum | Logitech FF[^2] | new-lg4ff | |
-| Logitech     | G Pro                | 046d | c272 | Bronze   | Logitech FF[^2] with HIDPP | hid-logitech-hidpp with patches[^4] | |
-| Moza         | R3                   | 346e | 0005 | Native   | PIDFF[^1] | pidff[^11] | |
-| Moza         | R5                   | 346e | 0004 | Native   | PIDFF[^1] | pidff[^11] | |
-| Moza         | R9                   | 346e | 0002 | Native   | PIDFF[^1] | pidff[^11] | |
-| Moza         | R9v2                 | 346e | 0002 | Native   | PIDFF[^1] | pidff[^11] | |
-| Moza         | R12                  | 346e | 0006 | Native   | PIDFF[^1] | pidff[^11] | |
-| Moza         | R16                  | 346e | 0000 | Native   | PIDFF[^1] | pidff[^11] | |
-| Moza         | R21                  | 346e | 0000 | Native   | PIDFF[^1] | pidff[^11] | |
-| OpenFFBoard[^6]|                    | 1209 | ffb0 | Native   | PIDFF[^1] | pidff[^11] | |
+| Logitech     | MOMO Wheel           | 046d | c295 | Platinum | Logitech FF[^2] | hid-lg4ff (limited effects)<br>new-lg4ff[^3] | Works |
+| Logitech     | DFP                  | 046d | c298 | Platinum | Logitech FF[^2] | hid-lg4ff (limited effects)<br>new-lg4ff[^3] | Works |
+| Logitech     | DFGT                 | 046d | c29a | Platinum | Logitech FF[^2] | hid-lg4ff (limited effects)<br>new-lg4ff[^3] | Works |
+| Logitech     | G25                  | 046d | c29b | Platinum | Logitech FF[^2] | hid-lg4ff (limited effects)<br>new-lg4ff[^3] | Works |
+| Logitech     | G27                  | 046d | c29b | Platinum | Logitech FF[^2] | hid-lg4ff (limited effects)<br>new-lg4ff[^3] | Works |
+| Logitech     | G29                  | 046d | c24f | Platinum | Logitech FF[^2] | hid-lg4ff (limited effects)<br>new-lg4ff[^3] | Works |
+| Logitech     | G920                 | 046d | c262 | Native   | Logitech FF[^2] with HIDPP | hid-logitech-hidpp[^10] | Works |
+| Logitech     | G923 (Xbox edition)  | 046d | c26d | Native   | Logitech FF[^2] with HIDPP | hid-logitech-hidpp[^10] | Works |
+| Logitech     | G923 (PS edition)    | 046d | c267 | Platinum | Logitech FF[^2] | new-lg4ff | Works |
+| Logitech     | G Pro                | 046d | c272 | Bronze   | Logitech FF[^2] with HIDPP | hid-logitech-hidpp with patches[^4] | Works [2](#joystick-detection) |
+| Moza         | R3                   | 346e | 0005 | Native   | PIDFF[^1] | pidff[^11] | [1](#duration-issue) |
+| Moza         | R5                   | 346e | 0004 | Native   | PIDFF[^1] | pidff[^11] | [1](#duration-issue) |
+| Moza         | R9                   | 346e | 0002 | Native   | PIDFF[^1] | pidff[^11] | [1](#duration-issue) |
+| Moza         | R9v2                 | 346e | 0002 | Native   | PIDFF[^1] | pidff[^11] | [1](#duration-issue) |
+| Moza         | R12                  | 346e | 0006 | Native   | PIDFF[^1] | pidff[^11] | [1](#duration-issue) |
+| Moza         | R16                  | 346e | 0000 | Native   | PIDFF[^1] | pidff[^11] | [1](#duration-issue) |
+| Moza         | R21                  | 346e | 0000 | Native   | PIDFF[^1] | pidff[^11] | [1](#duration-issue) |
+| OpenFFBoard[^6]|                    | 1209 | ffb0 | Native   | PIDFF[^1] | pidff[^11] | [1](#duration-issue) |
 | PXN          |                      |      |      |Not tested| ? | ? | |
-| Simagic      | M10                  | 0483 | 0522 | Silver   | PIDFF[^1] without a7 descriptor  | simagic-ff[^5] | |
-| Simagic      | Alpha Mini           | 0483 | 0522 | Silver (up to fw v159)<br>Broken | PID without a7 descriptor (up to fw v159)<br>Proprietary | simagic-ff[^5] | |
-| Simagic      | Alpha                | 0483 | 0522 | Silver (up to fw v159)<br>Broken | PID without a7 descriptor (up to fw v159)<br>Proprietary | simagic-ff[^5] | |
-| Simagic      | Alpha Ultimate       | 0483 | 0522 | Silver (up to fw v159)<br>Broken | PID without a7 descriptor (up to fw v159)<br>Proprietary | simagic-ff[^5] | |
+| Simagic      | M10                  | 0483 | 0522 | Silver   | PIDFF[^1] without a7 descriptor  | simagic-ff[^5] | Works. [1](#duration-issue)  |
+| Simagic      | Alpha Mini           | 0483 | 0522 | Silver (up to fw v159)<br>Broken | PID without a7 descriptor (up to fw v159)<br>Proprietary | simagic-ff[^5] | Works. [1](#duration-issue) |
+| Simagic      | Alpha                | 0483 | 0522 | Silver (up to fw v159)<br>Broken | PID without a7 descriptor (up to fw v159)<br>Proprietary | simagic-ff[^5] | Works. [1](#duration-issue) |
+| Simagic      | Alpha Ultimate       | 0483 | 0522 | Silver (up to fw v159)<br>Broken | PID without a7 descriptor (up to fw v159)<br>Proprietary | simagic-ff[^5] | Works. [1](#duration-issue) |
 | Simucube     | Simucube 1           | 16d0 | 0d5a | Native   | PIDFF[^1] | pidff[^11] | [How to setup Simucube base ](https://granitedevices.com/wiki/Using_Simucube_wheel_base_in_Linux) |
 | Simucube     | Simucube 2 Sport     | 16d0 | 0d61 | Native   | PIDFF[^1] | pidff[^11] | [How to setup Simucube base ](https://granitedevices.com/wiki/Using_Simucube_wheel_base_in_Linux) |
 | Simucube     | Simucube 2 Pro       | 16d0 | 0d60 | Native   | PIDFF[^1] | pidff[^11] | [How to setup Simucube base ](https://granitedevices.com/wiki/Using_Simucube_wheel_base_in_Linux) |
