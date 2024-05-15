@@ -112,6 +112,19 @@ Small fix, which removes `0xa7` descriptor from pidff, enables FFB in some devic
 [^13]: https://granitedevices.com/wiki/SimuCUBE_firmware_releases
 
 
+## Wine/Proton caveats
+
+### Joystick detection
+Even if device rank is "Native", there may be some small issues regarding SDL wheel detection in Steam. Now there is no possible way to euristically detect a wheel, so SDL have whitelist[^14] of VID/PIDs.
+
+[^14]: https://github.com/libsdl-org/SDL/blob/main/src/joystick/SDL_joystick.c#L340
+
+Also, for devices not present in list, Steam uses sandboxed SDL1.2 to detect devices. It has one small rule to detect all kinds of joystics, function [EV_IsJoystick()](https://github.com/libsdl-org/SDL-1.2/blob/main/src/joystick/linux/SDL_sysjoystick.c#L382-L398). And basically, for the device to be classed as a joystick, it must have either X and Y axes or a X and Y hat, and must have a trigger, A button, or 1 button. On some devices Y axis not exists (Logitech G Pro), and therefore, for SDL, that device is not a joystick and no need to forward it to the game. Native apps will work perfectly, Wine apps too, but not Steam+Proton games. We could fix it by changing descriptor axis, something like rename Rz to Y, and wheel will work in Proton now
+
+[Link to the Proton issue](https://github.com/ValveSoftware/Proton/issues/5126)
+
+
+
 ## DISCLAIMER
 
 THE SOFTWARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
