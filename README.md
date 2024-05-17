@@ -30,7 +30,7 @@ Device not tested at all. May be working, may be not. Contributions welcome!
 
 ## Table of compatibility
 
-| Manufacturer | Device names         | VID  | PID  | Support  | Protocol        | Proton compatibility |
+| Manufacturer | Device names         | VID  | PID  | Support  | Driver        | Proton compatibility |
 |--------------|----------------------|------|------|----------|-----------------|--------------|
 | Asetek       | Invicta              | 2433 | f300 |Not tested| ? | |
 | Asetek       | Forte                | 2433 | f301 |Not tested| ? | |
