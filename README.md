@@ -1,34 +1,41 @@
 # Linux steering wheels FFB support
 
-
 ## Ranks
+
 Ranks are totally subjective.
 
 ### Native
+
 Device works perfectly out-of-the-box, no need to build/install any custom drivers.
 
 Device gets 'Native' rank if device manufacturer uses known protocol (like PIDFF[^1]) and device could be initialized with native pidff driver[^11], or wrote driver for Linux (like hidpp[^10]).
 
 ### Platinum
+
 FFB on a device works perfectly with custom driver, was tested by many users, every FFB effect implemented.
 
 ### Gold
+
 Works with custom driver, without major bugs. May be not tested with many users/in all scenarios.
 
 ### Silver
+
 Works with custom driver, may be not all FFB effects implemented. May be not tested with many users/in all scenarios. May be some caveats or bugs, refer to driver repo for information.
 
 ### Bronze
+
 Basic FFB effects (like ConstantForce and Damper) works. Experimental support. Needs further testing. May be bugs, clipping, or memory leaks. Refer to driver repo for information.
 
 ### Broken
+
 FFB doesn't work at all. Device uses proprietary protocol, not yet reverse-engineered
 
 ### Not tested
+
 Device not tested at all. FFB protocol unknown. May be working, may be not. Contributions welcome!
 
-
 ## Table of compatibility
+
 | Manufacturer | Device names         | VID  | PID  | Support  | Protocol        | Driver needed | Proton compatibility |
 |--------------|----------------------|------|------|----------|-----------------|---------|--------------|
 | Asetek       | Invicta              | 2433 | f300 |Not tested| ? | ? | |
@@ -83,9 +90,6 @@ Device not tested at all. FFB protocol unknown. May be working, may be not. Cont
 | Turtle Beach |                      |      |      |Not tested| ? | ? | |
 | VRS          | DirectForce Pro      | 0483 | a355 |Broken    | PIDFF[^1], but HID descriptor does not allow pidff to initialize FFB. See https://github.com/JacKeTUs/linux-steering-wheels/issues/4 for information | ? | |
 
-
-
-
 [^1]: https://www.usb.org/sites/default/files/documents/pid1_01.pdf
 [^2]: https://opensource.logitech.com/wiki/force_feedback/Logitech_Force_Feedback_Protocol_V1.6.pdf
 [^3]: https://github.com/berarma/new-lg4ff
@@ -99,10 +103,10 @@ Device not tested at all. FFB protocol unknown. May be working, may be not. Cont
 [^11]: https://elixir.bootlin.com/linux/latest/source/drivers/hid/usbhid/hid-pidff.c
 [^16]: https://community.granitedevices.com/t/simucube-2-discussion-thread/2664/1606
 
-
-
 ## PIDFF caveats
+
 ### Duration issue
+
 Due to value of "infinite duration" not explicitly defined in PIDFF protocol, we have a bug in pidff driver. Many apps (including Wine) uses 0 as 'infinite duration' effect. [Link to mailing list](https://lkml.org/lkml/2022/10/2/99)
 
 To mitigate that issue you could use ffbwrap[^12] tool. For example, launch games with command:
@@ -111,16 +115,17 @@ To mitigate that issue you could use ffbwrap[^12] tool. For example, launch game
 [^12]: https://github.com/berarma/ffbtools
 
 ### `a7` descriptor issue
+
 Descriptor `0xa7` (effect delay) is not required for Windows PIDFF implementation. Some manufacturers (including Simucube at first, later Simagic and Cammus) didn't implement that parameter in their firmware. But in Linux PIDFF implementation `0xa7` descriptor is mandatory, and device without it can't be initialized with PIDFF driver. Simucube fixed it in latest firmware (1.0.49)[^13]
 
 Small fix, which removes `0xa7` descriptor from pidff, enables FFB in some devices (like Simagic and Cammus).
 
 [^13]: https://granitedevices.com/wiki/SimuCUBE_firmware_releases
 
-
 ## Wine/Proton caveats
 
 ### Joystick detection
+
 Even if device rank is "Native", there may be some small issues regarding SDL wheel detection in Steam. Now there is no possible way to euristically detect a wheel, so SDL have whitelist[^14] of VID/PIDs.
 
 [^14]: https://github.com/libsdl-org/SDL/blob/main/src/joystick/SDL_joystick.c#L340
@@ -132,6 +137,7 @@ Also, for devices not present in list, Steam uses sandboxed SDL1.2 to detect dev
 Also, recent updates to SDL created SDL Hint variable to dynamically extend wheel devices list[^15]. You need to just export `SDL_JOYSTICK_WHEEL_DEVICES=0x<VID>/0x<PID>,0x<VID2>/0x<PID2>` before you launching something.
 
 ## Steam settings for ~all devices and ~all games
+
 1. Turn Steam Input off in game settings
 2. Use recent Proton version for non-native games. 7 version known for having issues with HID devices detection. 
 3. If game does not detect your device, try setting SDL Hint[^15] environment variable in game launch command like so:
