@@ -4,35 +4,29 @@
 
 Ranks are totally subjective.
 
-### Native
-
-Device works perfectly out-of-the-box, no need to build/install any custom drivers.
-
-Device gets 'Native' rank if device manufacturer uses known protocol (like PIDFF) and device could be initialized with native pidff driver, or wrote driver for Linux (like hidpp).
-
 ### Platinum
 
-FFB on a device works perfectly with custom driver, was tested by many users, every FFB effect implemented.
+Works fully with the recommended driver with extensive testing. Most common FFB effects implemented.
 
 ### Gold
 
-Works with custom driver, without major bugs. May be not tested with many users/in all scenarios.
+Works fully but it's less tested and there might be some minor issues. Most common FFB effects implemented.
 
 ### Silver
 
-Works with custom driver, may be not all FFB effects implemented. May be not tested with many users/in all scenarios. May be some caveats or bugs, refer to driver repo for information.
+Works almost fully. Some FFB effects might be missing or some other significant issues which might be important in some cases. Workarounds could be available.
 
 ### Bronze
 
-Basic FFB effects (like ConstantForce and Damper) works. Experimental support. Needs further testing. May be bugs, clipping, or memory leaks. Refer to driver repo for information.
+Major bugs or missing FFB effects which limit its use. It might be enough in some cases but it's far from fully working.
 
 ### Broken
 
-FFB doesn't work at all. Device uses proprietary protocol, not yet reverse-engineered
+The device might be recognized as a gamepad/joystick but there's no FFB.
 
 ### Not tested
 
-Device not tested at all. FFB protocol unknown. May be working, may be not. Contributions welcome!
+Device not tested at all. May be working, may be not. Contributions welcome!
 
 ## Table of compatibility
 
@@ -59,28 +53,28 @@ Device not tested at all. FFB protocol unknown. May be working, may be not. Cont
 | Logitech     | G25                  | 046d | c29b | Platinum | hid-logitech[^2] | Works |
 | Logitech     | G27                  | 046d | c29b | Platinum | hid-logitech[^2] | Works |
 | Logitech     | G29                  | 046d | c24f | Platinum | hid-logitech[^2] | Works |
-| Logitech     | G920                 | 046d | c262 | Native   | hid-logitech-hidpp[^8] | Works |
-| Logitech     | G923 (Xbox edition)  | 046d | c26d | Native   | hid-logitech-hidpp[^8] | Works |
+| Logitech     | G920                 | 046d | c262 | Silver   | hid-logitech-hidpp[^8] | Works |
+| Logitech     | G923 (Xbox edition)  | 046d | c26d | Silver   | hid-logitech-hidpp[^8] | Works |
 | Logitech     | G923 (PS edition)    | 046d | c267 | Platinum | hid-logitech[^3] | Works |
 | Logitech     | G Pro                | 046d | c272 | Bronze   | hid-logitech-hidpp[^4] | Works [2](#joystick-detection) |
-| Moza         | R3                   | 346e | 0005 | Native   | hid-pidff | Needs testing [1](#duration-issue) |
-| Moza         | R5                   | 346e | 0004 | Native   | hid-pidff | Needs testing [1](#duration-issue) |
-| Moza         | R9                   | 346e | 0002 | Native   | hid-pidff | Needs testing [1](#duration-issue) |
-| Moza         | R9v2                 | 346e | 0002 | Native   | hid-pidff | Needs testing [1](#duration-issue) |
-| Moza         | R12                  | 346e | 0006 | Native   | hid-pidff | Needs testing [1](#duration-issue) |
-| Moza         | R16                  | 346e | 0000 | Native   | hid-pidff | Needs testing [1](#duration-issue) |
-| Moza         | R21                  | 346e | 0000 | Native   | hid-pidff | Needs testing [1](#duration-issue) |
-| OpenFFBoard  |                    | 1209 | ffb0 | Native   | hid-pidff | Needs testing [1](#duration-issue) |
+| Moza         | R3                   | 346e | 0005 | Silver   | hid-pidff | Needs testing [1](#duration-issue) |
+| Moza         | R5                   | 346e | 0004 | Silver   | hid-pidff | Needs testing [1](#duration-issue) |
+| Moza         | R9                   | 346e | 0002 | Silver   | hid-pidff | Needs testing [1](#duration-issue) |
+| Moza         | R9v2                 | 346e | 0002 | Silver   | hid-pidff | Needs testing [1](#duration-issue) |
+| Moza         | R12                  | 346e | 0006 | Silver   | hid-pidff | Needs testing [1](#duration-issue) |
+| Moza         | R16                  | 346e | 0000 | Silver   | hid-pidff | Needs testing [1](#duration-issue) |
+| Moza         | R21                  | 346e | 0000 | Silver   | hid-pidff | Needs testing [1](#duration-issue) |
+| OpenFFBoard  |                    | 1209 | ffb0 | Silver | hid-pidff | Needs testing [1](#duration-issue) |
 | PXN          |                      |      |      |Not tested| ? | |
 | Simagic      | M10                  | 0483 | 0522 | Silver   | hid-pidff[^1] | Works. [1](#duration-issue)  |
 | Simagic      | Alpha Mini           | 0483 | 0522 | Silver | hid-pidff[^5][^6] | Works. [1](#duration-issue) |
 | Simagic      | Alpha                | 0483 | 0522 | Silver | hid-pidff[^5][^6] | Works. [1](#duration-issue) |
 | Simagic      | Alpha Ultimate       | 0483 | 0522 | Silver | hid-pidff[^5][^6] | Works. [1](#duration-issue) |
-| Simucube     | Simucube 1           | 16d0 | 0d5a | Native   | hid-pidff | Works[^10]. [How to setup Simucube base](https://granitedevices.com/wiki/Using_Simucube_wheel_base_in_Linux) |
-| Simucube     | Simucube 2 Sport     | 16d0 | 0d61 | Native   | hid-pidff | Works[^10]. [How to setup Simucube base](https://granitedevices.com/wiki/Using_Simucube_wheel_base_in_Linux) |
-| Simucube     | Simucube 2 Pro       | 16d0 | 0d60 | Native   | hid-pidff | Works[^10]. [How to setup Simucube base](https://granitedevices.com/wiki/Using_Simucube_wheel_base_in_Linux) |
-| Simucube     | Simucube 2 Ultimate  | 16d0 | 0d5f | Native   | hid-pidff | Works[^10]. [How to setup Simucube base](https://granitedevices.com/wiki/Using_Simucube_wheel_base_in_Linux) |
-| SimXperience | AccuForce Pro        | 1fc9 | 804c | Native   | hid-pidff |  |
+| Simucube     | Simucube 1           | 16d0 | 0d5a | Silver | hid-pidff | Works[^10]. [How to setup Simucube base](https://granitedevices.com/wiki/Using_Simucube_wheel_base_in_Linux) |
+| Simucube     | Simucube 2 Sport     | 16d0 | 0d61 | Silver | hid-pidff | Works[^10]. [How to setup Simucube base](https://granitedevices.com/wiki/Using_Simucube_wheel_base_in_Linux) |
+| Simucube     | Simucube 2 Pro       | 16d0 | 0d60 | Silver | hid-pidff | Works[^10]. [How to setup Simucube base](https://granitedevices.com/wiki/Using_Simucube_wheel_base_in_Linux) |
+| Simucube     | Simucube 2 Ultimate  | 16d0 | 0d5f | Silver | hid-pidff | Works[^10]. [How to setup Simucube base](https://granitedevices.com/wiki/Using_Simucube_wheel_base_in_Linux) |
+| SimXperience | AccuForce Pro        | 1fc9 | 804c | Silver | hid-pidff |  |
 | Thrustmaster | T248                 | 044f | b696 | Gold     | hid-tmff2[^9] | |
 | Thrustmaster | T300RS (PS3 mode)    | 044f | b66e | Gold     | hid-tmff2[^9] | |
 | Thrustmaster |T300RS (PS3 advanced mode)|044f|b66f| Gold     | hid-tmff2[^9] | |
