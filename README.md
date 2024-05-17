@@ -69,10 +69,10 @@ Device not tested at all. FFB protocol unknown. May be working, may be not. Cont
 | Simagic      | Alpha Mini           | 0483 | 0522 | Silver (up to fw v159)<br>Broken | PIDFF[^1] with caveats (up to fw v159)<br>Proprietary | simagic-ff[^5] | Works. [1](#duration-issue) |
 | Simagic      | Alpha                | 0483 | 0522 | Silver (up to fw v159)<br>Broken | PIDFF[^1] with caveats (up to fw v159)<br>Proprietary | simagic-ff[^5] | Works. [1](#duration-issue) |
 | Simagic      | Alpha Ultimate       | 0483 | 0522 | Silver (up to fw v159)<br>Broken | PIDFF[^1] with caveats (up to fw v159)<br>Proprietary | simagic-ff[^5] | Works. [1](#duration-issue) |
-| Simucube     | Simucube 1           | 16d0 | 0d5a | Native   | PIDFF[^1] | pidff[^11] | [How to setup Simucube base ](https://granitedevices.com/wiki/Using_Simucube_wheel_base_in_Linux) |
-| Simucube     | Simucube 2 Sport     | 16d0 | 0d61 | Native   | PIDFF[^1] | pidff[^11] | [How to setup Simucube base ](https://granitedevices.com/wiki/Using_Simucube_wheel_base_in_Linux) |
-| Simucube     | Simucube 2 Pro       | 16d0 | 0d60 | Native   | PIDFF[^1] | pidff[^11] | [How to setup Simucube base ](https://granitedevices.com/wiki/Using_Simucube_wheel_base_in_Linux) |
-| Simucube     | Simucube 2 Ultimate  | 16d0 | 0d5f | Native   | PIDFF[^1] | pidff[^11] | [How to setup Simucube base ](https://granitedevices.com/wiki/Using_Simucube_wheel_base_in_Linux) |
+| Simucube     | Simucube 1           | 16d0 | 0d5a | Native   | PIDFF[^1] | pidff[^11] | Works. [How to setup Simucube base ](https://granitedevices.com/wiki/Using_Simucube_wheel_base_in_Linux) |
+| Simucube     | Simucube 2 Sport     | 16d0 | 0d61 | Native   | PIDFF[^1] | pidff[^11] | Works. [How to setup Simucube base ](https://granitedevices.com/wiki/Using_Simucube_wheel_base_in_Linux) |
+| Simucube     | Simucube 2 Pro       | 16d0 | 0d60 | Native   | PIDFF[^1] | pidff[^11] | Works. [How to setup Simucube base ](https://granitedevices.com/wiki/Using_Simucube_wheel_base_in_Linux) |
+| Simucube     | Simucube 2 Ultimate  | 16d0 | 0d5f | Native   | PIDFF[^1] | pidff[^11] | Works. [How to setup Simucube base ](https://granitedevices.com/wiki/Using_Simucube_wheel_base_in_Linux) |
 | SimXperience | AccuForce Pro        | 1fc9 | 804c | Native   | PIDFF[^1]  | pidff[^11] |  |
 | Thrustmaster | T248                 | 044f | b696 | Gold     | Proprietary| hid-tmff2[^8] | |
 | Thrustmaster | T300RS (PS3 mode)    | 044f | b66e | Gold     | Proprietary| hid-tmff2[^8] | |
