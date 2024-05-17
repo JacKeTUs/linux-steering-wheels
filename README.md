@@ -7,7 +7,7 @@ Ranks are totally subjective.
 ### Native
 Device works perfectly out-of-the-box, no need to build/install any custom drivers.
 
-Device gets 'Native' rank if device manufacturer uses known protocol (like PIDFF[^1]) or wrote driver for Linux (like hidpp[^10]).
+Device gets 'Native' rank if device manufacturer uses known protocol (like PIDFF[^1]) and device could be initialized with native pidff driver[^11], or wrote driver for Linux (like hidpp[^10]).
 
 ### Platinum
 FFB on a device works perfectly with custom driver, was tested by many users, every FFB effect implemented.
@@ -56,19 +56,19 @@ Device not tested at all. FFB protocol unknown. May be working, may be not. Cont
 | Logitech     | G923 (Xbox edition)  | 046d | c26d | Native   | Logitech FF[^2] with HIDPP | hid-logitech-hidpp[^10] | Works |
 | Logitech     | G923 (PS edition)    | 046d | c267 | Platinum | Logitech FF[^2] | new-lg4ff | Works |
 | Logitech     | G Pro                | 046d | c272 | Bronze   | Logitech FF[^2] with HIDPP | hid-logitech-hidpp with patches[^4] | Works [2](#joystick-detection) |
-| Moza         | R3                   | 346e | 0005 | Native   | PIDFF[^1] | pidff[^11] | [1](#duration-issue) |
-| Moza         | R5                   | 346e | 0004 | Native   | PIDFF[^1] | pidff[^11] | [1](#duration-issue) |
-| Moza         | R9                   | 346e | 0002 | Native   | PIDFF[^1] | pidff[^11] | [1](#duration-issue) |
-| Moza         | R9v2                 | 346e | 0002 | Native   | PIDFF[^1] | pidff[^11] | [1](#duration-issue) |
-| Moza         | R12                  | 346e | 0006 | Native   | PIDFF[^1] | pidff[^11] | [1](#duration-issue) |
-| Moza         | R16                  | 346e | 0000 | Native   | PIDFF[^1] | pidff[^11] | [1](#duration-issue) |
-| Moza         | R21                  | 346e | 0000 | Native   | PIDFF[^1] | pidff[^11] | [1](#duration-issue) |
-| OpenFFBoard[^6]|                    | 1209 | ffb0 | Native   | PIDFF[^1] | pidff[^11] | [1](#duration-issue) |
+| Moza         | R3                   | 346e | 0005 | Native   | PIDFF[^1] | pidff[^11] | Needs testing [1](#duration-issue) |
+| Moza         | R5                   | 346e | 0004 | Native   | PIDFF[^1] | pidff[^11] | Needs testing [1](#duration-issue) |
+| Moza         | R9                   | 346e | 0002 | Native   | PIDFF[^1] | pidff[^11] | Needs testing [1](#duration-issue) |
+| Moza         | R9v2                 | 346e | 0002 | Native   | PIDFF[^1] | pidff[^11] | Needs testing [1](#duration-issue) |
+| Moza         | R12                  | 346e | 0006 | Native   | PIDFF[^1] | pidff[^11] | Needs testing [1](#duration-issue) |
+| Moza         | R16                  | 346e | 0000 | Native   | PIDFF[^1] | pidff[^11] | Needs testing [1](#duration-issue) |
+| Moza         | R21                  | 346e | 0000 | Native   | PIDFF[^1] | pidff[^11] | Needs testing [1](#duration-issue) |
+| OpenFFBoard[^6]|                    | 1209 | ffb0 | Native   | PIDFF[^1] | pidff[^11] | Needs testing [1](#duration-issue) |
 | PXN          |                      |      |      |Not tested| ? | ? | |
-| Simagic      | M10                  | 0483 | 0522 | Silver   | PIDFF[^1] without a7 descriptor  | simagic-ff[^5] | Works. [1](#duration-issue)  |
-| Simagic      | Alpha Mini           | 0483 | 0522 | Silver (up to fw v159)<br>Broken | PID without a7 descriptor (up to fw v159)<br>Proprietary | simagic-ff[^5] | Works. [1](#duration-issue) |
-| Simagic      | Alpha                | 0483 | 0522 | Silver (up to fw v159)<br>Broken | PID without a7 descriptor (up to fw v159)<br>Proprietary | simagic-ff[^5] | Works. [1](#duration-issue) |
-| Simagic      | Alpha Ultimate       | 0483 | 0522 | Silver (up to fw v159)<br>Broken | PID without a7 descriptor (up to fw v159)<br>Proprietary | simagic-ff[^5] | Works. [1](#duration-issue) |
+| Simagic      | M10                  | 0483 | 0522 | Silver   | PIDFF[^1] with caveats| simagic-ff[^5] | Works. [1](#duration-issue)  |
+| Simagic      | Alpha Mini           | 0483 | 0522 | Silver (up to fw v159)<br>Broken | PIDFF[^1] with caveats (up to fw v159)<br>Proprietary | simagic-ff[^5] | Works. [1](#duration-issue) |
+| Simagic      | Alpha                | 0483 | 0522 | Silver (up to fw v159)<br>Broken | PIDFF[^1] with caveats (up to fw v159)<br>Proprietary | simagic-ff[^5] | Works. [1](#duration-issue) |
+| Simagic      | Alpha Ultimate       | 0483 | 0522 | Silver (up to fw v159)<br>Broken | PIDFF[^1] with caveats (up to fw v159)<br>Proprietary | simagic-ff[^5] | Works. [1](#duration-issue) |
 | Simucube     | Simucube 1           | 16d0 | 0d5a | Native   | PIDFF[^1] | pidff[^11] | [How to setup Simucube base ](https://granitedevices.com/wiki/Using_Simucube_wheel_base_in_Linux) |
 | Simucube     | Simucube 2 Sport     | 16d0 | 0d61 | Native   | PIDFF[^1] | pidff[^11] | [How to setup Simucube base ](https://granitedevices.com/wiki/Using_Simucube_wheel_base_in_Linux) |
 | Simucube     | Simucube 2 Pro       | 16d0 | 0d60 | Native   | PIDFF[^1] | pidff[^11] | [How to setup Simucube base ](https://granitedevices.com/wiki/Using_Simucube_wheel_base_in_Linux) |
@@ -81,7 +81,7 @@ Device not tested at all. FFB protocol unknown. May be working, may be not. Cont
 | Thrustmaster | TX                   | 044f | b669 | Gold     | Proprietary| hid-tmff2[^8] | |
 | Thrustmaster | TS-XV                | 044f |      | Gold     | Proprietary| hid-tmff2[^8] | |
 | Turtle Beach |                      |      |      |Not tested| ? | ? | |
-| VRS          | DirectForce Pro      |      |      |Not tested| ? | ? | |
+| VRS          | DirectForce Pro      | 0483 | a355 |Broken    | PIDFF[^1], but HID descriptor does not allow pidff to initialize FFB. See https://github.com/JacKeTUs/linux-steering-wheels/issues/4 for information | ? | |
 
 
 
