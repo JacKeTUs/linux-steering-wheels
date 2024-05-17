@@ -126,7 +126,7 @@ Also, recent updates to SDL created SDL Hint variable to dynamically extend whee
 
 1. Turn Steam Input off in game settings
 2. Use recent Proton version for non-native games. 7 version known for having issues with HID devices detection. 
-3. If game does not detect your device, try [setting SDL Hint](https://github.com/libsdl-org/SDL/issues/8595)environment variable in game launch command like so:
+3. If game does not detect your device, try [setting SDL Hint](https://github.com/libsdl-org/SDL/issues/8595) environment variable in game launch command like so:
     ```
     SDL_JOYSTICK_WHEEL_DEVICES=0x<VID>/0x<PID> %command%
     ```
