@@ -30,13 +30,15 @@ Device not tested at all. May be working, may be not. Contributions welcome!
 
 ## Table of compatibility
 
+Read also related sections for each driver below for more information.
+
 | Manufacturer | Device names         | VID  | PID  | Support  | Driver        | Proton compatibility |
 |--------------|----------------------|------|------|----------|-----------------|--------------|
 | Asetek       | Invicta              | 2433 | f300 |Not tested| ? | |
 | Asetek       | Forte                | 2433 | f301 |Not tested| ? | |
 | Asetek       | La Prima             | 2433 | f303 |Not tested| ? | |
 | Asetek       | Tony Kannan          | 2433 | f306 |Not tested| ? | |
-| Cammus       | C5                   | 3416 | 0301 | Silver   | hid-pidff[^1] | Works [1](#duration-issue), [2](#joystick-detection) |
+| Cammus       | C5                   | 3416 | 0301 | Silver   | hid-pidff[^1] | Works[^10] |
 | Fanatec      | CSL Elite            | 0eb7 | 0e03 | Gold     | hid-fanatecff[^7] | |
 | Fanatec      | CSL Elite (PS4)      | 0eb7 | 0005 | Gold     | hid-fanatecff[^7] | |
 | Fanatec      | DD                   | 0eb7 | 0020 | Gold     | hid-fanatecff[^7] | |
@@ -56,24 +58,24 @@ Device not tested at all. May be working, may be not. Contributions welcome!
 | Logitech     | G920                 | 046d | c262 | Silver   | hid-logitech-hidpp[^8] | Works |
 | Logitech     | G923 (Xbox edition)  | 046d | c26d | Silver   | hid-logitech-hidpp[^8] | Works |
 | Logitech     | G923 (PS edition)    | 046d | c267 | Platinum | hid-logitech[^3] | Works |
-| Logitech     | G Pro                | 046d | c272 | Bronze   | hid-logitech-hidpp[^4] | Works [2](#joystick-detection) |
-| Moza         | R3                   | 346e | 0005 | Silver   | hid-pidff | Needs testing [1](#duration-issue) |
-| Moza         | R5                   | 346e | 0004 | Silver   | hid-pidff | Needs testing [1](#duration-issue) |
-| Moza         | R9                   | 346e | 0002 | Silver   | hid-pidff | Needs testing [1](#duration-issue) |
-| Moza         | R9v2                 | 346e | 0002 | Silver   | hid-pidff | Needs testing [1](#duration-issue) |
-| Moza         | R12                  | 346e | 0006 | Silver   | hid-pidff | Needs testing [1](#duration-issue) |
-| Moza         | R16                  | 346e | 0000 | Silver   | hid-pidff | Needs testing [1](#duration-issue) |
-| Moza         | R21                  | 346e | 0000 | Silver   | hid-pidff | Needs testing [1](#duration-issue) |
-| OpenFFBoard  |                    | 1209 | ffb0 | Silver | hid-pidff | Needs testing [1](#duration-issue) |
+| Logitech     | G Pro                | 046d | c272 | Bronze   | hid-logitech-hidpp[^4] | Works[^10] |
+| Moza         | R3                   | 346e | 0005 | Silver   | hid-pidff | Needs testing |
+| Moza         | R5                   | 346e | 0004 | Silver   | hid-pidff | Needs testing |
+| Moza         | R9                   | 346e | 0002 | Silver   | hid-pidff | Needs testing |
+| Moza         | R9v2                 | 346e | 0002 | Silver   | hid-pidff | Needs testing |
+| Moza         | R12                  | 346e | 0006 | Silver   | hid-pidff | Needs testing |
+| Moza         | R16                  | 346e | 0000 | Silver   | hid-pidff | Needs testing |
+| Moza         | R21                  | 346e | 0000 | Silver   | hid-pidff | Needs testing |
+| OpenFFBoard  |                    | 1209 | ffb0 | Silver | hid-pidff | Needs testing |
 | PXN          |                      |      |      |Not tested| ? | |
-| Simagic      | M10                  | 0483 | 0522 | Silver   | hid-pidff[^1] | Works. [1](#duration-issue)  |
-| Simagic      | Alpha Mini           | 0483 | 0522 | Silver | hid-pidff[^5][^6] | Works. [1](#duration-issue) |
-| Simagic      | Alpha                | 0483 | 0522 | Silver | hid-pidff[^5][^6] | Works. [1](#duration-issue) |
-| Simagic      | Alpha Ultimate       | 0483 | 0522 | Silver | hid-pidff[^5][^6] | Works. [1](#duration-issue) |
-| Simucube     | Simucube 1           | 16d0 | 0d5a | Silver | hid-pidff | Works[^10]. [How to setup Simucube base](https://granitedevices.com/wiki/Using_Simucube_wheel_base_in_Linux) |
-| Simucube     | Simucube 2 Sport     | 16d0 | 0d61 | Silver | hid-pidff | Works[^10]. [How to setup Simucube base](https://granitedevices.com/wiki/Using_Simucube_wheel_base_in_Linux) |
-| Simucube     | Simucube 2 Pro       | 16d0 | 0d60 | Silver | hid-pidff | Works[^10]. [How to setup Simucube base](https://granitedevices.com/wiki/Using_Simucube_wheel_base_in_Linux) |
-| Simucube     | Simucube 2 Ultimate  | 16d0 | 0d5f | Silver | hid-pidff | Works[^10]. [How to setup Simucube base](https://granitedevices.com/wiki/Using_Simucube_wheel_base_in_Linux) |
+| Simagic      | M10                  | 0483 | 0522 | Silver   | hid-pidff[^1] | Works  |
+| Simagic      | Alpha Mini           | 0483 | 0522 | Silver | hid-pidff[^5][^6] | Works |
+| Simagic      | Alpha                | 0483 | 0522 | Silver | hid-pidff[^5][^6] | Works |
+| Simagic      | Alpha Ultimate       | 0483 | 0522 | Silver | hid-pidff[^5][^6] | Works |
+| Simucube     | Simucube 1           | 16d0 | 0d5a | Silver | hid-pidff | Works[^11] |
+| Simucube     | Simucube 2 Sport     | 16d0 | 0d61 | Silver | hid-pidff | Works[^11] |
+| Simucube     | Simucube 2 Pro       | 16d0 | 0d60 | Silver | hid-pidff | Works[^11] |
+| Simucube     | Simucube 2 Ultimate  | 16d0 | 0d5f | Silver | hid-pidff | Works[^11] |
 | SimXperience | AccuForce Pro        | 1fc9 | 804c | Silver | hid-pidff |  |
 | Thrustmaster | Nascar Pro FF2       | 044f | b605 |          | hid-tmff | |
 | Thrustmaster | FGT Rumble Force     | 044f | b651 |          | hid-tmff | |
@@ -87,7 +89,7 @@ Device not tested at all. May be working, may be not. Contributions welcome!
 | Thrustmaster | TX                   | 044f | b669 | Gold     | hid-tmff2[^9] | |
 | Thrustmaster | TS-XV                | 044f |      | Gold     | hid-tmff2[^9] | |
 | Turtle Beach |                      |      |      |Not tested| ? | |
-| VRS          | DirectForce Pro      | 0483 | a355 |Broken    | hid-pidff[^7] | ? | |
+| VRS          | DirectForce Pro      | 0483 | a355 |Broken    | hid-pidff[^7] | |
 
 [^1]: HID PID without a7 descriptor. Use [patched driver](https://github.com/spikerguy/cammus-ff).
 [^2]: Default driver lacks most effects. Use [patched driver](https://github.com/berarma/new-lg4ff).
@@ -98,7 +100,8 @@ Device not tested at all. May be working, may be not. Contributions welcome!
 [^7]: HID descriptor does not allow to initialize FFB. See [JacKeTUs#4](https://github.com/JacKeTUs/linux-steering-wheels/issues/4) for information.
 [^8]: Full USB command queue errors. Using [ffbwrap]() can help in some situations.
 [^9]: Custom module [hid-tmff2](https://github.com/Kimplul/hid-tmff2).
-[^10]: https://community.granitedevices.com/t/simucube-2-discussion-thread/2664/1606
+[^10]: See section on [joystick detection](#joystick-detection).
+[^11]: Read [here about how to setup Simucube base](https://granitedevices.com/wiki/Using_Simucube_wheel_base_in_Linux). And a [Success case](https://community.granitedevices.com/t/simucube-2-discussion-thread/2664/1606).
 
 ## hid-pidff
 
