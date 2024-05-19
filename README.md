@@ -95,32 +95,58 @@ Device not tested at all. May be working, may be not. Contributions welcome!
 [^9]: Custom module [hid-tmff2](https://github.com/Kimplul/hid-tmff2).
 [^10]: https://community.granitedevices.com/t/simucube-2-discussion-thread/2664/1606
 
-## PIDFF caveats
+## hid-pidff
+
+The kernel module `hid-pidff` implements the HID PID specification. HID PID is a standard for USB devices which includes FFB. Although this standard is several years old, most older and low end wheels don't implement it, but most high and some middle end wheels do.
+
+The driver works not without some issues though which are being worked on by users.
 
 ### Duration issue
 
-Due to value of "infinite duration" not explicitly defined in PIDFF protocol, we have a bug in pidff driver. Many apps (including Wine) uses 0 as 'infinite duration' effect. [Link to mailing list](https://lkml.org/lkml/2022/10/2/99)
+Although undocumented, Linux drivers and applications (including Wine) have always used value 0x0 for an infinite effect length, but the hid-pidff driver uses value 0xFFFF instead. When an effect with length 0x0 is uploaded, it plays no effect. The HID PID specification defines an infinite length effect with value 0xFFFF but this specification is for the hardware and isn't tied to Linux in any way.
 
-To mitigate that issue you could use [ffbwrap](https://github.com/berarma/ffbtools) tool. For example, launch games with command:
+Since the [Linux API documentation](https://www.kernel.org/doc/html/v4.14/input/ff.html) doesn't say which value should be used, [Paul Dino's patch to fix the issue](https://lkml.org/lkml/2022/10/2/99) has been received with scepticism. Even though the [comments in the code say that values above 0x7FFF should not be used](https://github.com/torvalds/linux/blob/eb6a9339efeb6f3d2b5c86fdf2382cdc293eca2c/include/uapi/linux/input.h#L300) and there's prior evidence in drivers and apps.
+
+To work around the issue you could use [ffbwrap](https://github.com/berarma/ffbtools) tool. For example, launch games with command:
 `ffbwrap --duration-fix /dev/input/by-id/usb-Your-Wheel-event-joystick %command%`
 
 ### `a7` descriptor issue
 
-Descriptor `0xa7` (effect delay) is not required for Windows PIDFF implementation. Some manufacturers (including Simucube at first, later Simagic and Cammus) didn't implement that parameter in their firmware. But in Linux PIDFF implementation `0xa7` descriptor is mandatory, and device without it can't be initialized with PIDFF driver. Simucube [fixed it in latest firmware (1.0.49)](https://granitedevices.com/wiki/SimuCUBE_firmware_releases).
+Descriptor `0xa7` (effect delay) is not required for Windows HID PID implementation. Some manufacturers (including Simucube at first, later Simagic and Cammus) didn't implement that parameter in their firmware. But in Linux HID PID implementation `0xa7` descriptor is mandatory, and device without it can't be initialized with hid-pidff driver. Simucube [fixed it in latest firmware (1.0.49)](https://granitedevices.com/wiki/SimuCUBE_firmware_releases).
 
-Small fix, which removes `0xa7` descriptor from pidff, enables FFB in some devices (like Simagic and Cammus).
+Small fix, which removes `0xa7` descriptor from hid-pidff, enables FFB in some devices (like Simagic and Cammus).
+
+## hid-logitech-hidpp
+
+This module implements HID++, Logitech's own specification for FFB. It's used in wheel models compatible with XBox. This models do almost everything in hardware, while models using hid-logitech need assistance from the driver.
+
+It works well except for an issue with the command queue.
+
+## Queue full errors
+
+This driver sends commands to the wheel as fast as it can. When the game is sending FFB commands at a fast rate the command queue fills and a message appears in dmesg. The FFB starts lagging behind and looses some FFB commands.
+
+Some games allow to configure the rate at which FFB commands are sent. Lowering this value can help and even fix the issue.
+
+[ffbwrap](https://github.com/berarma/ffbtools) can be used to work around it when the application can't be configured to send commands at a lower rate. It doesn't always work though since [some commands aren't correctly throttled](https://github.com/berarma/ffbtools/pull/31).
+
+## SDL
+
+SDL tries to heuristically guess which devices are gamepads and ignores everything that doesn't look like one. This means wheels and pedals might be ignored by SDL. This has been partially fixed by adding a [whitelist](https://github.com/libsdl-org/SDL/blob/main/src/joystick/SDL_joystick.c#L340) of wheels. This list has to be updated continuously with new models being tested.
+
+Recent updates to SDL created SDL Hint variable to dynamically extend wheel devices list[^15]. You need to just export `SDL_JOYSTICK_WHEEL_DEVICES=0x<VID>/0x<PID>,0x<VID2>/0x<PID2>` before you launching something.
 
 ## Wine/Proton caveats
 
 ### Joystick detection
 
-Even if device rank is "Native", there may be some small issues regarding SDL wheel detection in Steam. Now there is no possible way to euristically detect a wheel, so [SDL have whitelist](https://github.com/libsdl-org/SDL/blob/main/src/joystick/SDL_joystick.c#L340) of VID/PIDs.
+Even if the device is ranked well, there may be some small issues regarding SDL wheel detection in Steam.
 
-Also, for devices not present in list, Steam uses sandboxed SDL1.2 to detect devices. It has one small rule to detect all kinds of joystics, function [EV_IsJoystick()](https://github.com/libsdl-org/SDL-1.2/blob/main/src/joystick/linux/SDL_sysjoystick.c#L382-L398). And basically, for the device to be classed as a joystick, it must have either X and Y axes or a X and Y hat, and must have a trigger, A button, or 1 button. On some devices Y axis not exists (Logitech G Pro), and therefore, for SDL, that device is not a joystick and no need to forward it to the game. Native apps will work perfectly, Wine apps too, but not Steam+Proton games. We could fix it by changing descriptor axis, something like rename Rz to Y, and wheel will work in Proton now
+Also, for devices not present in whitelist, Steam uses sandboxed SDL1.2 to detect devices. It has one small rule to detect all kinds of joysticks, function [EV_IsJoystick()](https://github.com/libsdl-org/SDL-1.2/blob/main/src/joystick/linux/SDL_sysjoystick.c#L382-L398). And basically, for the device to be classed as a joystick, it must have either X and Y axes or a X and Y hat, and must have a trigger, A button, or 1 button. On some devices Y axis not exists (Logitech G Pro), and therefore, for SDL, that device is not a joystick and no need to forward it to the game. Native apps will work perfectly, Wine apps too, but not Steam+Proton games. We could fix it by changing descriptor axis, something like rename Rz to Y, and wheel will work in Proton now
+
+The environment variable `SDL_JOYSTICK_WHEEL_DEVICES` can be used to fix it.
 
 [Link to the Proton issue](https://github.com/ValveSoftware/Proton/issues/5126)
-
-Also, recent updates to SDL created SDL Hint variable to dynamically extend wheel devices list[^15]. You need to just export `SDL_JOYSTICK_WHEEL_DEVICES=0x<VID>/0x<PID>,0x<VID2>/0x<PID2>` before you launching something.
 
 ## Steam settings for ~all devices and ~all games
 
