@@ -75,6 +75,11 @@ Device not tested at all. May be working, may be not. Contributions welcome!
 | Simucube     | Simucube 2 Pro       | 16d0 | 0d60 | Silver | hid-pidff | Works[^10]. [How to setup Simucube base](https://granitedevices.com/wiki/Using_Simucube_wheel_base_in_Linux) |
 | Simucube     | Simucube 2 Ultimate  | 16d0 | 0d5f | Silver | hid-pidff | Works[^10]. [How to setup Simucube base](https://granitedevices.com/wiki/Using_Simucube_wheel_base_in_Linux) |
 | SimXperience | AccuForce Pro        | 1fc9 | 804c | Silver | hid-pidff |  |
+| Thrustmaster | Nascar Pro FF2       | 044f | b605 |          | hid-tmff | |
+| Thrustmaster | FGT Rumble Force     | 044f | b651 |          | hid-tmff | |
+| Thrustmaster | RGT FF CLUTCH        | 044f | b653 |          | hid-tmff | |
+| Thrustmaster | FGT Force Feedback   | 044f | b654 |          | hid-tmff | |
+| Thrustmaster | F430 Force Feedback  | 044f | b65a |          | hid-tmff | |
 | Thrustmaster | T248                 | 044f | b696 | Gold     | hid-tmff2[^9] | |
 | Thrustmaster | T300RS (PS3 mode)    | 044f | b66e | Gold     | hid-tmff2[^9] | |
 | Thrustmaster |T300RS (PS3 advanced mode)|044f|b66f| Gold     | hid-tmff2[^9] | |
