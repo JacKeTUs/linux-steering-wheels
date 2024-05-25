@@ -2,7 +2,7 @@
 
 ## Ranks
 
-Ranks are totally subjective.
+Ranks are based on user testing and results may vary due to differences in the hardware.
 
 ### Platinum
 
@@ -14,7 +14,7 @@ Works fully but it's less tested and there might be some minor issues. Most comm
 
 ### Silver
 
-Works almost fully. Some FFB effects might be missing or some other significant issues which might be important in some cases. Workarounds could be available.
+Works almost fully. Some FFB effects might be missing or some other significant issues which might be important in some cases. Workarounds might be available.
 
 ### Bronze
 
@@ -24,7 +24,7 @@ Major bugs or missing FFB effects which limit its use. It might be enough in som
 
 The device might be recognized as a gamepad/joystick but there's no FFB.
 
-### Not tested
+### (empty)
 
 Device not tested at all. May be working, may be not. Contributions welcome!
 
@@ -34,18 +34,18 @@ Read also related sections for each driver below for more information.
 
 | Manufacturer | Device names         | VID  | PID  | Support  | Driver        | Proton compatibility |
 |--------------|----------------------|------|------|----------|-----------------|--------------|
-| Asetek       | Invicta              | 2433 | f300 |Not tested| ? | |
-| Asetek       | Forte                | 2433 | f301 |Not tested| ? | |
-| Asetek       | La Prima             | 2433 | f303 |Not tested| ? | |
-| Asetek       | Tony Kannan          | 2433 | f306 |Not tested| ? | |
-| Cammus       | C5                   | 3416 | 0301 | Silver   | hid-pidff[^1] | Works[^10] |
+| Asetek       | Invicta              | 2433 | f300 |          | | |
+| Asetek       | Forte                | 2433 | f301 |          | | |
+| Asetek       | La Prima             | 2433 | f303 |          | | |
+| Asetek       | Tony Kannan          | 2433 | f306 |          | | |
+| Cammus       | C5                   | 3416 | 0301 | Silver[^12] | hid-pidff[^1] | Works[^10] |
 | Fanatec      | CSL Elite            | 0eb7 | 0e03 | Gold     | hid-fanatecff[^7] | |
 | Fanatec      | CSL Elite (PS4)      | 0eb7 | 0005 | Gold     | hid-fanatecff[^7] | |
 | Fanatec      | DD                   | 0eb7 | 0020 | Gold     | hid-fanatecff[^7] | |
 | Fanatec      | DD Pro               | 0eb7 | 0020 | Gold     | hid-fanatecff[^7] | |
 | Fanatec      | Clubsport DD         | 0eb7 | 0020 | Gold     | hid-fanatecff[^7] | |
-| Fanatec      |ClubSport Wheel Base V2|0eb7 | 0001 | Silver   | hid-fanatecff[^7] | |
-| Fanatec      |ClubSport Wheel Base V2.5|0eb7|0004 | Silver   | hid-fanatecff[^7] | |
+| Fanatec      | ClubSport Wheel Base V2 |0eb7 | 0001 | Silver | hid-fanatecff[^7] | |
+| Fanatec      | ClubSport Wheel Base V2.5 | 0eb7 |0004 | Silver | hid-fanatecff[^7] | |
 | Fanatec      | Podium DD1           | 0eb7 | 0006 | Silver   | hid-fanatecff[^7] | |
 | Fanatec      | Podium DD2           | 0eb7 | 0007 | Silver   | hid-fanatecff[^7] | |
 | Fanatec      | CSR Elite            | 0eb7 | 0011 | Silver   | hid-fanatecff[^7] | |
@@ -59,24 +59,24 @@ Read also related sections for each driver below for more information.
 | Logitech     | G923 (Xbox edition)  | 046d | c26d | Silver   | hid-logitech-hidpp[^8] | Works |
 | Logitech     | G923 (PS edition)    | 046d | c267 | Platinum | hid-logitech[^3] | Works |
 | Logitech     | G Pro                | 046d | c272 | Bronze   | hid-logitech-hidpp[^4] | Works[^10] |
-| Moza         | R3                   | 346e | 0005 | Silver   | hid-pidff | Needs testing |
-| Moza         | R5                   | 346e | 0004 | Silver   | hid-pidff | Needs testing |
-| Moza         | R9                   | 346e | 0002 | Silver   | hid-pidff | Needs testing |
-| Moza         | R9v2                 | 346e | 0002 | Silver   | hid-pidff | Needs testing |
-| Moza         | R12                  | 346e | 0006 | Silver   | hid-pidff | Needs testing |
-| Moza         | R16                  | 346e | 0000 | Silver   | hid-pidff | Needs testing |
-| Moza         | R21                  | 346e | 0000 | Silver   | hid-pidff | Needs testing |
-| OpenFFBoard  |                    | 1209 | ffb0 | Silver | hid-pidff | Needs testing |
-| PXN          |                      |      |      |Not tested| ? | |
-| Simagic      | M10                  | 0483 | 0522 | Silver   | hid-pidff[^1] | Works  |
-| Simagic      | Alpha Mini           | 0483 | 0522 | Silver | hid-pidff[^5][^6] | Works |
-| Simagic      | Alpha                | 0483 | 0522 | Silver | hid-pidff[^5][^6] | Works |
-| Simagic      | Alpha Ultimate       | 0483 | 0522 | Silver | hid-pidff[^5][^6] | Works |
-| Simucube     | Simucube 1           | 16d0 | 0d5a | Silver | hid-pidff | Works[^11] |
-| Simucube     | Simucube 2 Sport     | 16d0 | 0d61 | Silver | hid-pidff | Works[^11] |
-| Simucube     | Simucube 2 Pro       | 16d0 | 0d60 | Silver | hid-pidff | Works[^11] |
-| Simucube     | Simucube 2 Ultimate  | 16d0 | 0d5f | Silver | hid-pidff | Works[^11] |
-| SimXperience | AccuForce Pro        | 1fc9 | 804c | Silver | hid-pidff |  |
+| Moza         | R3                   | 346e | 0005 | Silver[^12]   | hid-pidff | Needs testing |
+| Moza         | R5                   | 346e | 0004 | Silver[^12]   | hid-pidff | Needs testing |
+| Moza         | R9                   | 346e | 0002 | Silver[^12]   | hid-pidff | Needs testing |
+| Moza         | R9v2                 | 346e | 0002 | Silver[^12]   | hid-pidff | Needs testing |
+| Moza         | R12                  | 346e | 0006 | Silver[^12]   | hid-pidff | Needs testing |
+| Moza         | R16                  | 346e | 0000 | Silver[^12]   | hid-pidff | Needs testing |
+| Moza         | R21                  | 346e | 0000 | Silver[^12]   | hid-pidff | Needs testing |
+| OpenFFBoard  |                      | 1209 | ffb0 | Silver[^12] | hid-pidff | Needs testing |
+| PXN          |                      |      |      |          | | |
+| Simagic      | M10                  | 0483 | 0522 | Silver[^12]   | hid-pidff[^1] | Works  |
+| Simagic      | Alpha Mini           | 0483 | 0522 | Silver[^12]/Broken[^6] :warning: | hid-pidff[^5] | Works |
+| Simagic      | Alpha                | 0483 | 0522 | Silver[^12]/Broken[^6] :warning: | hid-pidff[^5] | Works |
+| Simagic      | Alpha Ultimate       | 0483 | 0522 | Silver[^12]/Broken[^6] :warning: | hid-pidff[^5] | Works |
+| Simucube     | Simucube 1           | 16d0 | 0d5a | Silver[^12] | hid-pidff | Works[^11] |
+| Simucube     | Simucube 2 Sport     | 16d0 | 0d61 | Silver[^12] | hid-pidff | Works[^11] |
+| Simucube     | Simucube 2 Pro       | 16d0 | 0d60 | Silver[^12] | hid-pidff | Works[^11] |
+| Simucube     | Simucube 2 Ultimate  | 16d0 | 0d5f | Silver[^12] | hid-pidff | Works[^11] |
+| SimXperience | AccuForce Pro        | 1fc9 | 804c | Silver[^12] | hid-pidff |  |
 | Thrustmaster | Nascar Pro FF2       | 044f | b605 |          | hid-tmff | |
 | Thrustmaster | FGT Rumble Force     | 044f | b651 |          | hid-tmff | |
 | Thrustmaster | RGT FF CLUTCH        | 044f | b653 |          | hid-tmff | |
@@ -88,7 +88,7 @@ Read also related sections for each driver below for more information.
 | Thrustmaster | T300RS (PS4 mode)    | 044f | b66d | Gold     | hid-tmff2[^9] | |
 | Thrustmaster | TX                   | 044f | b669 | Gold     | hid-tmff2[^9] | |
 | Thrustmaster | TS-XV                | 044f |      | Gold     | hid-tmff2[^9] | |
-| Turtle Beach |                      |      |      |Not tested| ? | |
+| Turtle Beach |                      |      |      |          | | |
 | VRS          | DirectForce Pro      | 0483 | a355 |Broken    | hid-pidff[^7] | |
 
 [^1]: HID PID without a7 descriptor. Use [patched driver](https://github.com/spikerguy/cammus-ff).
@@ -96,24 +96,27 @@ Read also related sections for each driver below for more information.
 [^3]: Not supported by default driver. Use [patched driver](https://github.com/berarma/new-lg4ff).
 [^4]: Not supported by default driver. Use [patched driver](https://github.com/JacKeTUs/hid-logitech-hidpp).
 [^5]: HID PID with caveats. Use [patched driver](https://github.com/JacKeTUs/simagic-ff).
-[^6]: Only firmware versions up to v159.
+[^6]: Only works with firmware versions up to v159.
 [^7]: HID descriptor does not allow to initialize FFB. See [JacKeTUs#4](https://github.com/JacKeTUs/linux-steering-wheels/issues/4) for information.
 [^8]: Full USB command queue errors. Using [ffbwrap]() can help in some situations.
 [^9]: Custom module [hid-tmff2](https://github.com/Kimplul/hid-tmff2).
 [^10]: See section on [joystick detection](#joystick-detection).
 [^11]: Read [here about how to setup Simucube base](https://granitedevices.com/wiki/Using_Simucube_wheel_base_in_Linux). And a [Success case](https://community.granitedevices.com/t/simucube-2-discussion-thread/2664/1606).
+[^12]: No FFB out of the box due to duration issue. See [hid-pidff](#hid-pidff) section for workarounds.
 
 ## hid-pidff
 
-The kernel module `hid-pidff` implements the HID PID specification. HID PID is a standard for USB devices which includes FFB. Although this standard is several years old, most older and low end wheels don't implement it, but most high and some middle end wheels do.
+The kernel module `hid-pidff` implements the [HID PID specification](https://www.usb.org/sites/default/files/documents/pid1_01.pdf). HID PID is a standard for USB devices which includes FFB. Although this standard is several years old, most older and low end wheels don't implement it, but most high and some middle end wheels do.
 
 The driver works not without some issues though which are being worked on by users.
 
 ### Duration issue
 
+The driver doesn't play any FFB effect out of the box due to a flaw in its API.
+
 Although undocumented, Linux drivers and applications (including Wine) have always used value 0x0 for an infinite effect length, but the hid-pidff driver uses value 0xFFFF instead. When an effect with length 0x0 is uploaded, it plays no effect. The HID PID specification defines an infinite length effect with value 0xFFFF but this specification is for the hardware and isn't tied to Linux in any way.
 
-Since the [Linux API documentation](https://www.kernel.org/doc/html/v4.14/input/ff.html) doesn't say which value should be used, [Paul Dino's patch to fix the issue](https://lkml.org/lkml/2022/10/2/99) has been received with scepticism. Even though the [comments in the code say that values above 0x7FFF should not be used](https://github.com/torvalds/linux/blob/eb6a9339efeb6f3d2b5c86fdf2382cdc293eca2c/include/uapi/linux/input.h#L300) and there's prior evidence in drivers and apps.
+Paul Dino has sent a [patch to the Linux mailing list to fix the issue](https://lkml.org/lkml/2022/10/2/99) which is waiting approval.
 
 To work around the issue you could use [ffbwrap](https://github.com/berarma/ffbtools) tool. For example, launch games with command:
 `ffbwrap --duration-fix /dev/input/by-id/usb-Your-Wheel-event-joystick %command%`
@@ -170,7 +173,6 @@ The environment variable `SDL_JOYSTICK_WHEEL_DEVICES` can be used to fix it.
 
 ## Links
 
-- [HID PID specification](https://www.usb.org/sites/default/files/documents/pid1_01.pdf).
 - [Logitech FFb Protocol v1.6](https://opensource.logitech.com/wiki/force_feedback/Logitech_Force_Feedback_Protocol_V1.6.pdf).
 - [hid-logitech-hidpp kernel module](https://elixir.bootlin.com/linux/latest/source/drivers/hid/hid-logitech-hidpp.c).
 - [hid-pidff kernel module](https://elixir.bootlin.com/linux/latest/source/drivers/hid/usbhid/hid-pidff.c)
