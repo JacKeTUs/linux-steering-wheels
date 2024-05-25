@@ -108,8 +108,6 @@ Read also related sections for each driver below for more information.
 
 The kernel module `hid-pidff` implements the [HID PID specification](https://www.usb.org/sites/default/files/documents/pid1_01.pdf). HID PID is a standard for USB devices which includes FFB. Although this standard is several years old, most older and low end wheels don't implement it, but most high and some middle end wheels do.
 
-The driver works not without some issues though which are being worked on by users.
-
 ### Duration issue
 
 The driver doesn't play any FFB effect out of the box due to a flaw in its API.
@@ -125,7 +123,7 @@ To work around the issue you could use [ffbwrap](https://github.com/berarma/ffbt
 
 Descriptor `0xa7` (effect delay) is not required for Windows HID PID implementation. Some manufacturers (including Simucube at first, later Simagic and Cammus) didn't implement that parameter in their firmware. But in Linux HID PID implementation `0xa7` descriptor is mandatory, and device without it can't be initialized with hid-pidff driver. Simucube [fixed it in latest firmware (1.0.49)](https://granitedevices.com/wiki/SimuCUBE_firmware_releases).
 
-Small fix, which removes `0xa7` descriptor from hid-pidff, enables FFB in some devices (like Simagic and Cammus).
+Some devices will require a patched hid-pidff driver which removes `0xa7` descriptor requirement and enables FFB.
 
 ## hid-logitech-hidpp
 
