@@ -131,15 +131,17 @@ Small fix, which removes `0xa7` descriptor from hid-pidff, enables FFB in some d
 
 This module implements HID++, Logitech's own specification for FFB. It's used in wheel models compatible with XBox. This models do almost everything in hardware, while models using hid-logitech need assistance from the driver.
 
-It works well except for an issue with the command queue.
+### Queue full errors
 
-## Queue full errors
+In some games, when using this driver the FFB can lag behind so much that it's unbearable.
 
-This driver sends commands to the wheel as fast as it can. When the game is sending FFB commands at a fast rate the command queue fills and a message appears in dmesg. The FFB starts lagging behind and looses some FFB commands.
+This driver sends commands to the wheel at the same rate they're sent by the game. When the game is sending FFB commands at a very fast rate the command queue fills and a warning message appears in dmesg about the full queue. As a consequence the FFB starts lagging behind and looses some FFB commands.
 
-Some games allow to configure the rate at which FFB commands are sent. Lowering this value can help and even fix the issue.
+In some games, the rate at which the FFB commands are sent is tied to the frame rate, thus it may work well at lower frame rates but fill the queue at higher frame rates.
 
-[ffbwrap](https://github.com/berarma/ffbtools) can be used to work around it when the application can't be configured to send commands at a lower rate. It doesn't always work though since [some commands aren't correctly throttled](https://github.com/berarma/ffbtools/pull/31).
+Some games allow to configure the rate at which FFB commands are sent. Lowering that value can help and even fix the issue.
+
+[ffbwrap](https://github.com/berarma/ffbtools) can be used to work around it when the application can't be configured to send commands at a lower rate. Needs testing.
 
 ## SDL
 
