@@ -81,7 +81,7 @@ Device not tested at all. FFB protocol unknown. May be working, may be not. Cont
 | Thrustmaster | TX                   | 044f | b669 | Gold     | Proprietary| hid-tmff2[^8] | |
 | Thrustmaster | TS-XV                | 044f |      | Gold     | Proprietary| hid-tmff2[^8] | |
 | Turtle Beach |                      |      |      |Not tested| ? | ? | |
-| VRS          | DirectForce Pro      | 0483 | a355 |Broken    | PIDFF[^1], but HID descriptor does not allow pidff to initialize FFB. See https://github.com/JacKeTUs/linux-steering-wheels/issues/4 for information | ? | |
+| VRS          | DirectForce Pro      | 0483 | a355 | Silver | PIDFF[^1] | vrs-ff[^17] | |
 
 
 
@@ -98,7 +98,7 @@ Device not tested at all. FFB protocol unknown. May be working, may be not. Cont
 [^10]: https://elixir.bootlin.com/linux/latest/source/drivers/hid/hid-logitech-hidpp.c
 [^11]: https://elixir.bootlin.com/linux/latest/source/drivers/hid/usbhid/hid-pidff.c
 [^16]: https://community.granitedevices.com/t/simucube-2-discussion-thread/2664/1606
-
+[^17]: https://github.com/JacKeTUs/vrs-ff
 
 
 ## PIDFF caveats
