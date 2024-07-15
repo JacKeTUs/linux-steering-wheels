@@ -59,14 +59,14 @@ Read also related sections for each driver below for more information.
 | Logitech     | G923 (Xbox edition)  | 046d | c26d | Silver   | hid-logitech-hidpp[^8] | Works |
 | Logitech     | G923 (PS edition)    | 046d | c267 | Platinum | hid-logitech[^3] | Works |
 | Logitech     | G Pro                | 046d | c272 | Bronze   | hid-logitech-hidpp[^4] | Works[^10] |
-| Moza         | R3                   | 346e | 0005 | Silver[^12]   | hid-pidff | Needs testing |
-| Moza         | R5                   | 346e | 0004 | Silver[^12]   | hid-pidff | Needs testing |
-| Moza         | R9                   | 346e | 0002 | Silver[^12]   | hid-pidff | Needs testing |
-| Moza         | R9v2                 | 346e | 0002 | Silver[^12]   | hid-pidff | Needs testing |
-| Moza         | R12                  | 346e | 0006 | Silver[^12]   | hid-pidff | Needs testing |
-| Moza         | R16                  | 346e | 0000 | Silver[^12]   | hid-pidff | Needs testing |
-| Moza         | R21                  | 346e | 0000 | Silver[^12]   | hid-pidff | Needs testing |
-| OpenFFBoard  |                      | 1209 | ffb0 | Silver[^12] | hid-pidff | Needs testing |
+| Moza         | R3                   | 346e | 0005 | Silver[^12]   | hid-pidff | Works[^13] |
+| Moza         | R5                   | 346e | 0004 | Silver[^12]   | hid-pidff | Works[^13] |
+| Moza         | R9                   | 346e | 0002 | Silver[^12]   | hid-pidff | Works[^13] |
+| Moza         | R9v2                 | 346e | 0002 | Silver[^12]   | hid-pidff | Works[^13] |
+| Moza         | R12                  | 346e | 0006 | Silver[^12]   | hid-pidff | Works[^13] |
+| Moza         | R16                  | 346e | 0000 | Silver[^12]   | hid-pidff | Works[^13] |
+| Moza         | R21                  | 346e | 0000 | Silver[^12]   | hid-pidff | Works[^13] |
+| OpenFFBoard  |                      | 1209 | ffb0 | Silver[^12] | hid-pidff | Works |
 | PXN          |                      |      |      |          | | |
 | Simagic      | M10                  | 0483 | 0522 | Silver[^12]   | hid-pidff[^1] | Works  |
 | Simagic      | Alpha Mini           | 0483 | 0522 | Silver[^12]/Broken[^6] :warning: | hid-pidff[^5] | Works |
@@ -89,7 +89,7 @@ Read also related sections for each driver below for more information.
 | Thrustmaster | TX                   | 044f | b669 | Gold     | hid-tmff2[^9] | |
 | Thrustmaster | TS-XV                | 044f |      | Gold     | hid-tmff2[^9] | |
 | Turtle Beach |                      |      |      |          | | |
-| VRS          | DirectForce Pro      | 0483 | a355 |Broken    | hid-pidff[^7] | |
+| VRS          | DirectForce Pro      | 0483 | a355 | Silver   | hid-pidff | Works[^7] |
 
 [^1]: HID PID without a7 descriptor. Use [patched driver](https://github.com/spikerguy/cammus-ff).
 [^2]: Default driver lacks most effects. Use [patched driver](https://github.com/berarma/new-lg4ff).
@@ -97,12 +97,13 @@ Read also related sections for each driver below for more information.
 [^4]: Not supported by default driver. Use [patched driver](https://github.com/JacKeTUs/hid-logitech-hidpp).
 [^5]: HID PID with caveats. Use [patched driver](https://github.com/JacKeTUs/simagic-ff).
 [^6]: Only works with firmware versions up to v159.
-[^7]: HID descriptor does not allow to initialize FFB. See [JacKeTUs#4](https://github.com/JacKeTUs/linux-steering-wheels/issues/4) for information.
+[^7]: Not supported by default driver. Use [patched driver](https://github.com/JacKeTUs/vrs-ff).
 [^8]: Full USB command queue errors. Using [ffbwrap]() can help in some situations.
 [^9]: Custom module [hid-tmff2](https://github.com/Kimplul/hid-tmff2).
 [^10]: See section on [joystick detection](#joystick-detection).
 [^11]: Read [here about how to setup Simucube base](https://granitedevices.com/wiki/Using_Simucube_wheel_base_in_Linux). And a [Success case](https://community.granitedevices.com/t/simucube-2-discussion-thread/2664/1606).
 [^12]: No FFB out of the box due to duration issue. See [hid-pidff](#hid-pidff) section for workarounds.
+[^13]: Not supported by default driver. Use [patched driver](https://github.com/JacKeTUs/universal-ff).
 
 ## hid-pidff
 
@@ -116,7 +117,7 @@ Although undocumented, Linux drivers and applications (including Wine) have alwa
 
 Paul Dino has sent a [patch to the Linux mailing list to fix the issue](https://lkml.org/lkml/2022/10/2/99) which is waiting approval.
 
-To work around the issue you could use [ffbwrap](https://github.com/berarma/ffbtools) tool. For example, launch games with command:
+To work around the issue without custom drivers you could use [ffbwrap](https://github.com/berarma/ffbtools) tool. For example, launch games with command:
 `ffbwrap --duration-fix /dev/input/by-id/usb-Your-Wheel-event-joystick %command%`
 
 ### `a7` descriptor issue
