@@ -39,6 +39,7 @@ Read also related sections for each driver below for more information.
 | Asetek       | La Prima             | 2433 | f303 |          | | |
 | Asetek       | Tony Kannan          | 2433 | f306 |          | | |
 | Cammus       | C5                   | 3416 | 0301 | Silver[^12] | hid-pidff[^1] | Works[^10] |
+| Cammus       | C12                  | 3416 | 0302 | Silver[^12] | hid-pidff[^1] | Works[^10] |
 | Fanatec      | CSL Elite            | 0eb7 | 0e03 | Gold     | hid-fanatecff[^7] | |
 | Fanatec      | CSL Elite (PS4)      | 0eb7 | 0005 | Gold     | hid-fanatecff[^7] | |
 | Fanatec      | DD                   | 0eb7 | 0020 | Gold     | hid-fanatecff[^7] | |
@@ -103,7 +104,7 @@ Read also related sections for each driver below for more information.
 [^10]: See section on [joystick detection](#joystick-detection).
 [^11]: Read [here about how to setup Simucube base](https://granitedevices.com/wiki/Using_Simucube_wheel_base_in_Linux). And a [Success case](https://community.granitedevices.com/t/simucube-2-discussion-thread/2664/1606).
 [^12]: No FFB out of the box due to duration issue. See [hid-pidff](#hid-pidff) section for workarounds.
-[^13]: Not supported by default driver. Use [patched driver](https://github.com/JacKeTUs/universal-ff).
+[^13]: Not supported by default driver. Use [patched driver](https://github.com/JacKeTUs/universal-pidff).
 
 ## hid-pidff
 
