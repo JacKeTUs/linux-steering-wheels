@@ -50,6 +50,7 @@ Read also related sections for each driver below for more information.
 | Fanatec      | Podium DD1           | 0eb7 | 0006 | Silver   | hid-fanatecff[^7] | |
 | Fanatec      | Podium DD2           | 0eb7 | 0007 | Silver   | hid-fanatecff[^7] | |
 | Fanatec      | CSR Elite            | 0eb7 | 0011 | Silver   | hid-fanatecff[^7] | |
+| FFBeast      |                      | 045b | 59d7 | Silver[^13] | hid-pidff[^1]  | Works |
 | Logitech     | MOMO Wheel           | 046d | c295 | Platinum | hid-logitech[^2] | Works |
 | Logitech     | DFP                  | 046d | c298 | Platinum | hid-logitech[^2] | Works |
 | Logitech     | DFGT                 | 046d | c29a | Platinum | hid-logitech[^2] | Works |
@@ -103,7 +104,8 @@ Read also related sections for each driver below for more information.
 [^9]: Custom module [hid-tmff2](https://github.com/Kimplul/hid-tmff2).
 [^10]: See section on [joystick detection](#joystick-detection).
 [^11]: Read [here about how to setup Simucube base](https://granitedevices.com/wiki/Using_Simucube_wheel_base_in_Linux). And a [Success case](https://community.granitedevices.com/t/simucube-2-discussion-thread/2664/1606).
-[^12]: No FFB out of the box due to duration issue. See [hid-pidff](#hid-pidff) section for workarounds.
+[^12]: No FFB out of the box due to duration issue. See [hid-pidff](#hid-pidff) section for workarounds, or use custom driver[^1].
+[^13]: Only Wheel mode was tested by user.
 
 ## hid-pidff
 
