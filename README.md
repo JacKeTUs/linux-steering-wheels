@@ -113,13 +113,18 @@ Read also related sections for each driver below for more information.
 
 The kernel module `hid-pidff` implements the [HID PID specification](https://www.usb.org/sites/default/files/documents/pid1_01.pdf). HID PID is a standard for USB devices which includes FFB. Although this standard is several years old, most older and low end wheels don't implement it, but most high and some middle end wheels do.
 
+With Linux 6.15, the generic `hid-pidff` driver was upgraded and made more compatible with wide range of devices out of the box. Some devies still need some fixes like
+fixed direction for Moza deivces (caused by a bug in SDL which was [fixed](https://github.com/libsdl-org/SDL/pull/12031)), permissive device dontrol field search for VRS. More importantly, Moza, Camus and others define more than 80 buttons which is a current Linux limitation for joysticks and gamepads.
+
+Linux 6.15 introduces `hid-universal-pidff`, an extension to the generic PID driver, which extends usable button range, sets better default fuzz/flat values and can be made to fix device descriptors if needed. Additionally, it enables us to provide an initial set of newly-introduced pidff quirks.
+
 ### Duration issue
+
+**Fixed in Linux 6.15**
 
 The driver doesn't play any FFB effect out of the box due to a flaw in its API.
 
 Although undocumented, Linux drivers and applications (including Wine) have always used value 0x0 for an infinite effect length, but the hid-pidff driver uses value 0xFFFF instead. When an effect with length 0x0 is uploaded, it plays no effect. The HID PID specification defines an infinite length effect with value 0xFFFF but this specification is for the hardware and isn't tied to Linux in any way.
-
-Paul Dino has sent a [patch to the Linux mailing list to fix the issue](https://lkml.org/lkml/2022/10/2/99) which is waiting approval.
 
 To work around the issue without custom drivers you could use [ffbwrap](https://github.com/berarma/ffbtools) tool. For example, launch games with command:
 `ffbwrap --duration-fix /dev/input/by-id/usb-Your-Wheel-event-joystick %command%`
@@ -127,6 +132,8 @@ To work around the issue without custom drivers you could use [ffbwrap](https://
 This issue is fixed in patched universal-pidff driver[^1].
 
 ### `a7` descriptor issue
+
+**Fixed in Linux 6.15**
 
 Descriptor `0xa7` (effect delay) is not required for Windows HID PID implementation. Some manufacturers (including Simucube at first, later Simagic and Cammus) didn't implement that parameter in their firmware. But in Linux HID PID implementation `0xa7` descriptor is mandatory, and device without it can't be initialized with hid-pidff driver. Simucube [fixed it in latest firmware (1.0.49)](https://granitedevices.com/wiki/SimuCUBE_firmware_releases).
 
