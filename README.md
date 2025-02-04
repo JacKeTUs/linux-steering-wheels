@@ -38,8 +38,8 @@ Read also related sections for each driver below for more information.
 | Asetek       | Forte                | 2433 | f301 |          | | |
 | Asetek       | La Prima             | 2433 | f303 |          | | |
 | Asetek       | Tony Kannan          | 2433 | f306 |          | | |
-| Cammus       | C5                   | 3416 | 0301 | Silver[^12] | hid-pidff[^1] | Works[^10] |
-| Cammus       | C12                  | 3416 | 0302 | Silver[^12] | hid-pidff[^1] | Works[^10] |
+| Cammus       | C5                   | 3416 | 0301 | Platinum | hid-universal-pidff[^1] | Works[^10] |
+| Cammus       | C12                  | 3416 | 0302 | Platinum | hid-universal-pidff[^1] | Works[^10] |
 | Fanatec      | CSL Elite            | 0eb7 | 0e03 | Gold     | hid-fanatecff[^7] | |
 | Fanatec      | CSL Elite (PS4)      | 0eb7 | 0005 | Gold     | hid-fanatecff[^7] | |
 | Fanatec      | DD                   | 0eb7 | 0020 | Gold     | hid-fanatecff[^7] | |
@@ -50,7 +50,7 @@ Read also related sections for each driver below for more information.
 | Fanatec      | Podium DD1           | 0eb7 | 0006 | Silver   | hid-fanatecff[^7] | |
 | Fanatec      | Podium DD2           | 0eb7 | 0007 | Silver   | hid-fanatecff[^7] | |
 | Fanatec      | CSR Elite            | 0eb7 | 0011 | Silver   | hid-fanatecff[^7] | |
-| FFBeast      |                      | 045b | 59d7 | Silver[^13] | hid-pidff[^1]  | Works |
+| FFBeast      | Wheel                | 045b | 59d7 | Platinum | hid-universal-pidff[^1]  | Works |
 | Logitech     | MOMO Wheel           | 046d | c295 | Platinum | hid-logitech[^2] | Works |
 | Logitech     | DFP                  | 046d | c298 | Platinum | hid-logitech[^2] | Works |
 | Logitech     | DFGT                 | 046d | c29a | Platinum | hid-logitech[^2] | Works |
@@ -61,24 +61,27 @@ Read also related sections for each driver below for more information.
 | Logitech     | G923 (Xbox edition)  | 046d | c26d | Silver   | hid-logitech-hidpp[^8] | Works |
 | Logitech     | G923 (PS edition)    | 046d | c267 | Platinum | hid-logitech[^3] | Works |
 | Logitech     | G Pro                | 046d | c272 | Bronze   | hid-logitech-hidpp[^4] | Works[^10] |
-| Moza         | R3                   | 346e | 0005 | Silver[^12]   | hid-pidff[^1] | Works |
-| Moza         | R5                   | 346e | 0004 | Silver[^12]   | hid-pidff[^1] | Works |
-| Moza         | R9                   | 346e | 0002 | Silver[^12]   | hid-pidff[^1] | Works |
-| Moza         | R9v2                 | 346e | 0002 | Silver[^12]   | hid-pidff[^1] | Works |
-| Moza         | R12                  | 346e | 0006 | Silver[^12]   | hid-pidff[^1] | Works |
-| Moza         | R16                  | 346e | 0000 | Silver[^12]   | hid-pidff[^1] | Works |
-| Moza         | R21                  | 346e | 0000 | Silver[^12]   | hid-pidff[^1] | Works |
-| OpenFFBoard  |                      | 1209 | ffb0 | Gold | hid-pidff | Works |
-| PXN          |                      |      |      |          | | |
-| Simagic      | M10                  | 0483 | 0522 | Silver[^12]   | hid-pidff[^5] | Works  |
-| Simagic      | Alpha Mini           | 0483 | 0522 | Silver[^12]/Broken[^6] :warning: | hid-pidff[^5] | Works |
-| Simagic      | Alpha                | 0483 | 0522 | Silver[^12]/Broken[^6] :warning: | hid-pidff[^5] | Works |
-| Simagic      | Alpha Ultimate       | 0483 | 0522 | Silver[^12]/Broken[^6] :warning: | hid-pidff[^5] | Works |
-| Simucube     | Simucube 1           | 16d0 | 0d5a | Silver[^12] | hid-pidff | Works[^11] |
-| Simucube     | Simucube 2 Sport     | 16d0 | 0d61 | Silver[^12] | hid-pidff | Works[^11] |
-| Simucube     | Simucube 2 Pro       | 16d0 | 0d60 | Silver[^12] | hid-pidff | Works[^11] |
-| Simucube     | Simucube 2 Ultimate  | 16d0 | 0d5f | Silver[^12] | hid-pidff | Works[^11] |
-| SimXperience | AccuForce Pro        | 1fc9 | 804c | Silver[^12] | hid-pidff |  |
+| Moza         | R3                   | 346e | 0005 | Platinum | hid-universal-pidff[^1] | Works |
+| Moza         | R5                   | 346e | 0004 | Platinum | hid-universal-pidff[^1] | Works |
+| Moza         | R9 (v1/v2)           | 346e | 0002 | Platinum | hid-universal-pidff[^1] | Works |
+| Moza         | R12                  | 346e | 0006 | Platinum | hid-universal-pidff[^1] | Works |
+| Moza         | R16                  | 346e | 0000 | Platinum | hid-universal-pidff[^1] | Works |
+| Moza         | R21                  | 346e | 0000 | Platinum | hid-universal-pidff[^1] | Works |
+| OpenFFBoard  |                      | 1209 | ffb0 | Platinum | hid-pidff[^1] | Works |
+| PXN          | V10                  | 11ff | 3245 | Gold     | hid-universal-pidff[^1] | Works |
+| PXN          | V12                  | 11ff | 1212 | Gold     | hid-universal-pidff[^1] | Works |
+| PXN          | V12 Lite             | 11ff | 1112 | Gold     | hid-universal-pidff[^1] | Works |
+| PXN          | V12 Lite (SE?)       | 11ff | 1211 | Gold     | hid-universal-pidff[^1] | Works |
+| Lite Star    | GT987 FF	      | 11ff | 2141 | Gold     | hid-universal-pidff[^1] | Works |
+| Simagic      | M10                  | 0483 | 0522 | Silver   | hid-pidff[^5] | Works  |
+| Simagic      | Alpha Mini           | 0483 | 0522 | Silver/Broken[^6] :warning: | hid-pidff[^5] | Works |
+| Simagic      | Alpha                | 0483 | 0522 | Silver/Broken[^6] :warning: | hid-pidff[^5] | Works |
+| Simagic      | Alpha Ultimate       | 0483 | 0522 | Silver/Broken[^6] :warning: | hid-pidff[^5] | Works |
+| Simucube     | Simucube 1           | 16d0 | 0d5a | Silver   | hid-pidff[^1] | Works[^11] |
+| Simucube     | Simucube 2 Sport     | 16d0 | 0d61 | Silver   | hid-pidff[^1] | Works[^11] |
+| Simucube     | Simucube 2 Pro       | 16d0 | 0d60 | Silver   | hid-pidff[^1] | Works[^11] |
+| Simucube     | Simucube 2 Ultimate  | 16d0 | 0d5f | Silver   | hid-pidff[^1] | Works[^11] |
+| SimXperience | AccuForce Pro        | 1fc9 | 804c | Platinum | hid-pidff[^1] |  |
 | Thrustmaster | Nascar Pro FF2       | 044f | b605 |          | hid-tmff | |
 | Thrustmaster | FGT Rumble Force     | 044f | b651 |          | hid-tmff | |
 | Thrustmaster | RGT FF CLUTCH        | 044f | b653 |          | hid-tmff | |
@@ -91,9 +94,9 @@ Read also related sections for each driver below for more information.
 | Thrustmaster | TX                   | 044f | b669 | Gold     | hid-tmff2[^9] | |
 | Thrustmaster | TS-XV                | 044f |      | Gold     | hid-tmff2[^9] | |
 | Turtle Beach |                      |      |      |          | | |
-| VRS          | DirectForce Pro      | 0483 | a355 | Silver   | hid-pidff[^1] | Works |
+| VRS          | DirectForce Pro      | 0483 | a355 | Platinum | hid-universal-pidff[^1] | Works |
 
-[^1]: Not supported by default driver. Use [patched driver](https://github.com/JacKeTUs/universal-pidff).
+[^1]: Full native support since Linux 6.15. Plug and play
 [^2]: Default driver lacks most effects. Use [patched driver](https://github.com/berarma/new-lg4ff).
 [^3]: Not supported by default driver. Use [patched driver](https://github.com/berarma/new-lg4ff).
 [^3]: Not supported by default driver. Use [patched driver](https://github.com/JacKeTUs/hid-logitech-hidpp).
@@ -104,8 +107,7 @@ Read also related sections for each driver below for more information.
 [^9]: Custom module [hid-tmff2](https://github.com/Kimplul/hid-tmff2).
 [^10]: See section on [joystick detection](#joystick-detection).
 [^11]: Read [here about how to setup Simucube base](https://granitedevices.com/wiki/Using_Simucube_wheel_base_in_Linux). And a [Success case](https://community.granitedevices.com/t/simucube-2-discussion-thread/2664/1606).
-[^12]: No FFB out of the box due to duration issue. See [hid-pidff](#hid-pidff) section for workarounds, or use custom driver[^1].
-[^13]: Only Wheel mode was tested by user.
+[^12]: Only Wheel mode was tested by user.
 
 ## hid-pidff
 
@@ -167,7 +169,7 @@ The environment variable `SDL_JOYSTICK_WHEEL_DEVICES` can be used to fix it.
 ## Steam settings for ~all devices and ~all games
 
 1. Turn Steam Input off in game settings
-2. Use recent Proton version for non-native games. 7 version known for having issues with HID devices detection. 
+2. Use recent Proton version for non-native games. 7 version known for having issues with HID devices detection.
 3. If game does not detect your device, try [setting SDL Hint](https://github.com/libsdl-org/SDL/issues/8595) environment variable in game launch command like so:
     ```
     SDL_JOYSTICK_WHEEL_DEVICES=0x<VID>/0x<PID> %command%
