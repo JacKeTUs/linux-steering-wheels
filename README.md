@@ -14,11 +14,13 @@ Works fully but it's less tested and there might be some minor issues. Most comm
 
 ### Silver
 
-Works almost fully. Some FFB effects might be missing or some other significant issues which might be important in some cases. Workarounds might be available.
+Works almost fully. Some FFB effects might be missing or some other significant issues which might be
+important in some cases. Workarounds might be available.
 
 ### Bronze
 
-Major bugs or missing FFB effects which limit its use. It might be enough in some cases but it's far from fully working.
+Major bugs or missing FFB effects which limit its use. It might be enough in some cases
+but it's far from fully working.
 
 ### Broken
 
@@ -106,20 +108,29 @@ Read also related sections for each driver below for more information.
 [^8]: Full USB command queue errors. Using [ffbwrap]() can help in some situations.
 [^9]: Custom module [hid-tmff2](https://github.com/Kimplul/hid-tmff2).
 [^10]: See section on [joystick detection](#joystick-detection).
-[^11]: Read [here about how to setup Simucube base](https://granitedevices.com/wiki/Using_Simucube_wheel_base_in_Linux). And a [Success case](https://community.granitedevices.com/t/simucube-2-discussion-thread/2664/1606).
+[^11]: Read [here about how to setup Simucube base](https://granitedevices.com/wiki/Using_Simucube_wheel_base_in_Linux).
+And a [Success case](https://community.granitedevices.com/t/simucube-2-discussion-thread/2664/1606).
 [^12]: Only Wheel mode was tested by user.
-[^13]: You need to enable "high torque mode" after device is turned on/plugged in. More info here: [asetek_wheelbase_cli](https://github.com/moonrail/asetek_wheelbase_cli)
-[^14]: Some VRS DirectForce Pro units have a "power saving" feature which disables force feedback up until the wheel is moved a little.
-doesn't hurt it's normal performance.
+[^13]: You need to enable "high torque mode" after device is turned on/plugged in.
+More info here: [asetek_wheelbase_cli](https://github.com/moonrail/asetek_wheelbase_cli)
+[^14]: Some VRS DirectForce Pro units have a "power saving" feature which disables force feedback up until the
+wheel is moved a little. doesn't hurt it's normal performance.
 
 ## hid-pidff
 
-The kernel module `hid-pidff` implements the [HID PID specification](https://www.usb.org/sites/default/files/documents/pid1_01.pdf). HID PID is a standard for USB devices which includes FFB. Although this standard is several years old, most older and low end wheels don't implement it, but most high and some middle end wheels do.
+The kernel module `hid-pidff` implements the [HID PID specification](https://www.usb.org/sites/default/files/documents/pid1_01.pdf).
+HID PID is a standard for USB devices which includes FFB. Although this standard is several years old, most older and
+low end wheels don't implement it, but most high and some middle end wheels do.
 
-With Linux 6.15, the generic `hid-pidff` driver was upgraded and made more compatible with wide range of devices out of the box. Some devies still need some fixes like
-fixed direction for Moza deivces (caused by a bug in SDL which was [fixed](https://github.com/libsdl-org/SDL/pull/12031)), permissive device dontrol field search for VRS. More importantly, Moza, Camus and others define more than 80 buttons which is a current Linux limitation for joysticks and gamepads.
+With Linux 6.15, the generic `hid-pidff` driver was upgraded and made more compatible with wide range of devices out of
+the box. Some devies still need some fixes like fixed direction for Moza deivces (caused by a bug in SDL which was
+[fixed](https://github.com/libsdl-org/SDL/pull/12031)), permissive device dontrol field search for VRS. More
+importantly, Moza, Camus and others define more than 80 buttons which is a current Linux
+limitation for joysticks and gamepads.
 
-Linux 6.15 introduces `hid-universal-pidff`, an extension to the generic PID driver, which extends usable button range, sets better default fuzz/flat values and can be made to fix device descriptors if needed. Additionally, it enables us to provide an initial set of newly-introduced pidff quirks.
+Linux 6.15 introduces `hid-universal-pidff`, an extension to the generic PID driver, which extends usable button range,
+sets better default fuzz/flat values and can be made to fix device descriptors if needed. Additionally, it enables us
+to provide an initial set of newly-introduced pidff quirks.
 
 ### Duration issue
 
@@ -128,43 +139,61 @@ Linux 6.15 introduces `hid-universal-pidff`, an extension to the generic PID dri
 
 The driver doesn't play any FFB effect out of the box due to a flaw in its API.
 
-Although undocumented, Linux drivers and applications (including Wine) have always used value 0x0 for an infinite effect length, but the hid-pidff driver uses value 0xFFFF instead. When an effect with length 0x0 is uploaded, it plays no effect. The HID PID specification defines an infinite length effect with value 0xFFFF but this specification is for the hardware and isn't tied to Linux in any way.
+Although undocumented, Linux drivers and applications (including Wine) have always used value 0x0 for an infinite effect
+length, but the hid-pidff driver uses value 0xFFFF instead. When an effect with length 0x0 is uploaded, it plays no
+effect. The HID PID specification defines an infinite length effect with value 0xFFFF but this specification is for the
+hardware and isn't tied to Linux in any way.
 
-To work around the issue without custom drivers you could use [ffbwrap](https://github.com/berarma/ffbtools) tool. For example, launch games with command:
-`ffbwrap --duration-fix /dev/input/by-id/usb-Your-Wheel-event-joystick %command%`
+To work around the issue without custom drivers you could use [ffbwrap](https://github.com/berarma/ffbtools) tool.
+For example, launch games with command:
 
-This issue is fixed in patched universal-pidff driver[^1].
+```shell
+ffbwrap --duration-fix /dev/input/by-id/usb-Your-Wheel-event-joystick %command%
+```
 
 ### `a7` descriptor issue
 
 > [!INFO]
 > Fixed in Linux 6.15
 
-Descriptor `0xa7` (effect delay) is not required for Windows HID PID implementation. Some manufacturers (including Simucube at first, later Simagic and Cammus) didn't implement that parameter in their firmware. But in Linux HID PID implementation `0xa7` descriptor is mandatory, and device without it can't be initialized with hid-pidff driver. Simucube [fixed it in latest firmware (1.0.49)](https://granitedevices.com/wiki/SimuCUBE_firmware_releases).
+Descriptor `0xa7` (effect delay) is not required for Windows HID PID implementation. Some manufacturers (including
+Simucube at first, later Simagic and Cammus) didn't implement that parameter in their firmware. But in Linux HID PID
+implementation `0xa7` descriptor is mandatory, and device without it can't be initialized with hid-pidff driver.
+Simucube [fixed it in latest firmware (1.0.49)](https://granitedevices.com/wiki/SimuCUBE_firmware_releases).
 
 Some devices will require a patched hid-pidff driver which removes `0xa7` descriptor requirement and enables FFB.
 
 ## hid-logitech-hidpp
 
-This module implements HID++, Logitech's own specification for FFB. It's used in wheel models compatible with XBox. This models do almost everything in hardware, while models using hid-logitech need assistance from the driver.
+This module implements HID++, Logitech's own specification for FFB. It's used in wheel models compatible with XBox.
+This models do almost everything in hardware, while models using hid-logitech need assistance from the driver.
 
 ### Queue full errors
 
 In some games, when using this driver the FFB can lag behind so much that it's unbearable.
 
-This driver sends commands to the wheel at the same rate they're sent by the game. When the game is sending FFB commands at a very fast rate the command queue fills and a warning message appears in dmesg about the full queue. As a consequence the FFB starts lagging behind and looses some FFB commands.
+This driver sends commands to the wheel at the same rate they're sent by the game. When the game is sending FFB commands
+at a very fast rate the command queue fills and a warning message appears in dmesg about the full queue. As a
+consequence the FFB starts lagging behind and looses some FFB commands.
 
-In some games, the rate at which the FFB commands are sent is tied to the frame rate, thus it may work well at lower frame rates but fill the queue at higher frame rates.
+In some games, the rate at which the FFB commands are sent is tied to the frame rate, thus it may work well at lower
+frame rates but fill the queue at higher frame rates.
 
-Some games allow to configure the rate at which FFB commands are sent. Lowering that value can help and even fix the issue.
+Some games allow to configure the rate at which FFB commands are sent. Lowering that value can help and even
+fix the issue.
 
-[ffbwrap](https://github.com/berarma/ffbtools) can be used to work around it when the application can't be configured to send commands at a lower rate. Needs testing.
+[ffbwrap](https://github.com/berarma/ffbtools) can be used to work around it when the application can't be configured
+to send commands at a lower rate. Needs testing.
 
 ## SDL
 
-SDL tries to heuristically guess which devices are gamepads and ignores everything that doesn't look like one. This means wheels and pedals might be ignored by SDL. This has been partially fixed by adding a [whitelist](https://github.com/libsdl-org/SDL/blob/main/src/joystick/SDL_joystick.c#L340) of wheels. This list has to be updated continuously with new models being tested.
+SDL tries to heuristically guess which devices are gamepads and ignores everything that doesn't look like one. This
+means wheels and pedals might be ignored by SDL. This has been partially fixed by adding a
+[whitelist](https://github.com/libsdl-org/SDL/blob/main/src/joystick/SDL_joystick.c#L340) of wheels. This list has
+to be updated continuously with new models being tested.
 
-Recent updates to SDL created SDL Hint variable to dynamically extend wheel devices list[^15]. You need to just export `SDL_JOYSTICK_WHEEL_DEVICES=0x<VID>/0x<PID>,0x<VID2>/0x<PID2>` before you launching something.
+Recent updates to SDL created SDL Hint variable to dynamically extend wheel devices list[^15]. You need to just
+export `SDL_JOYSTICK_WHEEL_DEVICES=0x<VID>/0x<PID>,0x<VID2>/0x<PID2>` before you launching something.
 
 ## Wine/Proton caveats
 
@@ -172,7 +201,14 @@ Recent updates to SDL created SDL Hint variable to dynamically extend wheel devi
 
 Even if the device is ranked well, there may be some small issues regarding SDL wheel detection in Steam.
 
-Also, for devices not present in whitelist, Steam uses sandboxed SDL1.2 to detect devices. It has one small rule to detect all kinds of joysticks, function [EV_IsJoystick()](https://github.com/libsdl-org/SDL-1.2/blob/main/src/joystick/linux/SDL_sysjoystick.c#L382-L398). And basically, for the device to be classed as a joystick, it must have either X and Y axes or a X and Y hat, and must have a trigger, A button, or 1 button. On some devices Y axis not exists (Logitech G Pro), and therefore, for SDL, that device is not a joystick and no need to forward it to the game. Native apps will work perfectly, Wine apps too, but not Steam+Proton games. We could fix it by changing descriptor axis, something like rename Rz to Y, and wheel will work in Proton now
+Also, for devices not present in whitelist, Steam uses sandboxed SDL1.2 to detect devices.
+It has one small rule to detect all kinds of joysticks, function
+[EV_IsJoystick()](https://github.com/libsdl-org/SDL-1.2/blob/main/src/joystick/linux/SDL_sysjoystick.c#L382-L398).
+And basically, for the device to be classed as a joystick, it must have either X and Y axes or a X and Y hat, and
+must have a trigger, A button, or 1 button. On some devices Y axis not exists (Logitech G Pro), and therefore, for SDL,
+that device is not a joystick and no need to forward it to the game. Native apps will work perfectly, Wine apps too,
+but not Steam+Proton games. We could fix it by changing descriptor axis, something like rename Rz to Y, and wheel
+will work in Proton now
 
 The environment variable `SDL_JOYSTICK_WHEEL_DEVICES` can be used to fix it.
 
@@ -184,11 +220,14 @@ Alternatively, [Boxflat](https://github.com/Lawstorant/boxflat) has "Detection f
 
 1. Turn Steam Input off in game settings
 2. Use recent Proton version for non-native games. 7 version known for having issues with HID devices detection.
-3. If game does not detect your device, try [setting SDL Hint](https://github.com/libsdl-org/SDL/issues/8595) environment variable in game launch command like so:
+3. If game does not detect your device, try [setting SDL Hint](https://github.com/libsdl-org/SDL/issues/8595)
+   environment variable in game launch command like so:
+
     ```
     SDL_JOYSTICK_WHEEL_DEVICES=0x<VID>/0x<PID> %command%
     ```
-    This is only relevant for devices which are, for various reasons, not in a SDL whitelist[^14] (yet), or for older Steam runtime versions which does not have updated SDL library.
+    This is only relevant for devices which are, for various reasons, not in a SDL whitelist[^14] (yet), or for
+    older Steam runtime versions which does not have updated SDL library.
 
 4. If none of that worked, create an issue, where members of the community will try to help you with your specific game
 
