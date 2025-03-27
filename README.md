@@ -134,7 +134,7 @@ to provide an initial set of newly-introduced pidff quirks.
 
 ### Duration issue
 
-> [!INFO]
+> [!NOTE]
 > Fixed in Linux 6.15
 
 The driver doesn't play any FFB effect out of the box due to a flaw in its API.
@@ -153,7 +153,7 @@ ffbwrap --duration-fix /dev/input/by-id/usb-Your-Wheel-event-joystick %command%
 
 ### `a7` descriptor issue
 
-> [!INFO]
+> [!NOTE]
 > Fixed in Linux 6.15
 
 Descriptor `0xa7` (effect delay) is not required for Windows HID PID implementation. Some manufacturers (including
