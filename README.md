@@ -63,10 +63,10 @@ Read also related sections for each driver below for more information.
 | Logitech     | G Pro                | 046d | c272 | Bronze   | hid-logitech-hidpp[^4] | Works[^10] |
 | Moza         | R3                   | 346e | 0005 | Platinum | hid-universal-pidff[^1] | Works |
 | Moza         | R5                   | 346e | 0004 | Platinum | hid-universal-pidff[^1] | Works |
-| Moza         | R9 (v1/v2)           | 346e | 0002 | Platinum | hid-universal-pidff[^1] | Works |
-| Moza         | R12                  | 346e | 0006 | Platinum | hid-universal-pidff[^1] | Works |
-| Moza         | R16                  | 346e | 0000 | Platinum | hid-universal-pidff[^1] | Works |
-| Moza         | R21                  | 346e | 0000 | Platinum | hid-universal-pidff[^1] | Works |
+| Moza         | R9  (v1/v2/v3)       | 346e | 0002 | Platinum | hid-universal-pidff[^1] | Works |
+| Moza         | R12 (v1/v2)          | 346e | 0006 | Platinum | hid-universal-pidff[^1] | Works |
+| Moza         | R16 (v1/v2)          | 346e | 0000 | Platinum | hid-universal-pidff[^1] | Works |
+| Moza         | R21 (v1/v2)          | 346e | 0000 | Platinum | hid-universal-pidff[^1] | Works |
 | OpenFFBoard  |                      | 1209 | ffb0 | Platinum | hid-pidff[^1] | Works |
 | PXN          | V10                  | 11ff | 3245 | Gold     | hid-universal-pidff[^1] | Works |
 | PXN          | V12                  | 11ff | 1212 | Gold     | hid-universal-pidff[^1] | Works |
