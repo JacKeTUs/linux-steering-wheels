@@ -34,10 +34,10 @@ Read also related sections for each driver below for more information.
 
 | Manufacturer | Device names         | VID  | PID  | Support  | Driver        | Proton compatibility |
 |--------------|----------------------|------|------|----------|-----------------|--------------|
-| Asetek       | Invicta              | 2433 | f300 |          | | |
-| Asetek       | Forte                | 2433 | f301 |          | | |
-| Asetek       | La Prima             | 2433 | f303 |          | | |
-| Asetek       | Tony Kannan          | 2433 | f306 |          | | |
+| Asetek       | Invicta              | 2433 | f300 | Gold[^13] | hid-universal-pidff[^1] | Works |
+| Asetek       | Forte                | 2433 | f301 | Gold[^13] | hid-universal-pidff[^1] | Works |
+| Asetek       | La Prima             | 2433 | f303 | Gold[^13] | hid-universal-pidff[^1] | Works |
+| Asetek       | Tony Kannan          | 2433 | f306 | Gold[^13] | hid-universal-pidff[^1] | Works |
 | Cammus       | C5                   | 3416 | 0301 | Platinum | hid-universal-pidff[^1] | Works[^10] |
 | Cammus       | C12                  | 3416 | 0302 | Platinum | hid-universal-pidff[^1] | Works[^10] |
 | Fanatec      | CSL Elite            | 0eb7 | 0e03 | Gold     | hid-fanatecff[^7] | |
@@ -108,6 +108,7 @@ Read also related sections for each driver below for more information.
 [^10]: See section on [joystick detection](#joystick-detection).
 [^11]: Read [here about how to setup Simucube base](https://granitedevices.com/wiki/Using_Simucube_wheel_base_in_Linux). And a [Success case](https://community.granitedevices.com/t/simucube-2-discussion-thread/2664/1606).
 [^12]: Only Wheel mode was tested by user.
+[^13]: You need to enable "high torque mode" after device is turned on/plugged in. More info here: [asetek_wheelbase_cli](https://github.com/moonrail/asetek_wheelbase_cli)
 
 ## hid-pidff
 
@@ -170,6 +171,8 @@ Even if the device is ranked well, there may be some small issues regarding SDL 
 Also, for devices not present in whitelist, Steam uses sandboxed SDL1.2 to detect devices. It has one small rule to detect all kinds of joysticks, function [EV_IsJoystick()](https://github.com/libsdl-org/SDL-1.2/blob/main/src/joystick/linux/SDL_sysjoystick.c#L382-L398). And basically, for the device to be classed as a joystick, it must have either X and Y axes or a X and Y hat, and must have a trigger, A button, or 1 button. On some devices Y axis not exists (Logitech G Pro), and therefore, for SDL, that device is not a joystick and no need to forward it to the game. Native apps will work perfectly, Wine apps too, but not Steam+Proton games. We could fix it by changing descriptor axis, something like rename Rz to Y, and wheel will work in Proton now
 
 The environment variable `SDL_JOYSTICK_WHEEL_DEVICES` can be used to fix it.
+
+Alternatively, [Boxflat](https://github.com/Lawstorant/boxflat) has "Detection fix" functionality.
 
 [Link to the Proton issue](https://github.com/ValveSoftware/Proton/issues/5126)
 
