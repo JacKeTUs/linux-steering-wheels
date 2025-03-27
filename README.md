@@ -94,7 +94,7 @@ Read also related sections for each driver below for more information.
 | Thrustmaster | TX                   | 044f | b669 | Gold     | hid-tmff2[^9] | |
 | Thrustmaster | TS-XV                | 044f |      | Gold     | hid-tmff2[^9] | |
 | Turtle Beach |                      |      |      |          | | |
-| VRS          | DirectForce Pro      | 0483 | a355 | Platinum | hid-universal-pidff[^1] | Works |
+| VRS          | DirectForce Pro      | 0483 | a355 | Platinum[^14] | hid-universal-pidff[^1] | Works |
 
 [^1]: Full native support since Linux 6.15. Plug and play
 [^2]: Default driver lacks most effects. Use [patched driver](https://github.com/berarma/new-lg4ff).
@@ -109,6 +109,8 @@ Read also related sections for each driver below for more information.
 [^11]: Read [here about how to setup Simucube base](https://granitedevices.com/wiki/Using_Simucube_wheel_base_in_Linux). And a [Success case](https://community.granitedevices.com/t/simucube-2-discussion-thread/2664/1606).
 [^12]: Only Wheel mode was tested by user.
 [^13]: You need to enable "high torque mode" after device is turned on/plugged in. More info here: [asetek_wheelbase_cli](https://github.com/moonrail/asetek_wheelbase_cli)
+[^14]: Some VRS DirectForce Pro units have a "power saving" feature which disables force feedback up until the wheel is moved a little.
+doesn't hurt it's normal performance.
 
 ## hid-pidff
 
