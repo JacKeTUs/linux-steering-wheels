@@ -191,7 +191,7 @@ means wheels and pedals might be ignored by SDL. This has been partially fixed b
 [whitelist](https://github.com/libsdl-org/SDL/blob/main/src/joystick/SDL_joystick.c#L340) of wheels. This list has
 to be updated continuously with new models being tested.
 
-Recent updates to SDL created SDL Hint variable to dynamically extend wheel devices list[^15]. You need to just
+Recent updates to SDL created SDL Hint variable to dynamically extend wheel devices list. You need to just
 export `SDL_JOYSTICK_WHEEL_DEVICES=0x<VID>/0x<PID>,0x<VID2>/0x<PID2>` before you launching something.
 
 ## Wine/Proton caveats
@@ -225,7 +225,7 @@ Alternatively, [Boxflat](https://github.com/Lawstorant/boxflat) has "Detection f
     ```
     SDL_JOYSTICK_WHEEL_DEVICES=0x<VID>/0x<PID> %command%
     ```
-    This is only relevant for devices which are, for various reasons, not in a SDL whitelist[^14] (yet), or for
+    This is only relevant for devices which are, for various reasons, not in a SDL whitelist (yet), or for
     older Steam runtime versions which does not have updated SDL library.
 
 4. If none of that worked, create an issue, where members of the community will try to help you with your specific game
