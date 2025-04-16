@@ -131,6 +131,11 @@ Linux 6.15 introduces `hid-universal-pidff`, an extension to the generic PID dri
 sets better default fuzz/flat values and can be made to fix device descriptors if needed. Additionally, it enables us
 to provide an initial set of newly-introduced pidff quirks.
 
+> [!NOTE]
+> `hid-universal-pidff` and patches to `hid-pidff` were backported to 6.12, 6.13 and 6.14. Some of the patches were
+> backported to even earlier kernels but maintainers decided not to work on backporting all of them thus 6.12 is the
+> current cut-off point for support.
+
 ### Duration issue
 
 > [!NOTE]
