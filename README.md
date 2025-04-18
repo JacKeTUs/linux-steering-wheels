@@ -132,7 +132,7 @@ sets better default fuzz/flat values and can be made to fix device descriptors i
 to provide an initial set of newly-introduced pidff quirks.
 
 > [!NOTE]
-> `hid-universal-pidff` and patches to `hid-pidff` were backported to 6.12, 6.13 and 6.14. Some of the patches were
+> `hid-universal-pidff` and patches to `hid-pidff` were backported to 6.12.24, 6.13.12 and 6.14.3. Some of the patches were
 > backported to even earlier kernels but maintainers decided not to work on backporting all of them thus 6.12 is the
 > current cut-off point for support.
 
