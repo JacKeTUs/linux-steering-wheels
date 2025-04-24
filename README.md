@@ -96,7 +96,7 @@ Read also related sections for each driver below for more information.
 | Thrustmaster | TX                   | 044f | b669 | Gold     | hid-tmff2[^9] | |
 | Thrustmaster | TS-XV                | 044f |      | Gold     | hid-tmff2[^9] | |
 | Turtle Beach |                      |      |      |          | | |
-| VRS          | DirectForce Pro      | 0483 | a355 | Platinum[^13] | hid-universal-pidff[^1] | Works |
+| VRS          | DirectForce Pro      | 0483 | a355 | Platinum[^13] | hid-universal-pidff[^1] | Works[^10] |
 
 [^1]: Full native support since Linux 6.15. Plug and play
 [^2]: Default driver lacks most effects. Use [patched driver](https://github.com/berarma/new-lg4ff).
@@ -214,7 +214,7 @@ that device is not a joystick and no need to forward it to the game. Native apps
 but not Steam+Proton games. We could fix it by changing descriptor axis, something like rename Rz to Y, and wheel
 will work in Proton now
 
-The environment variable `SDL_JOYSTICK_WHEEL_DEVICES` can be used to fix it.
+The environment variable `SDL_JOYSTICK_WHEEL_DEVICES` or `PROTON_ENABLE_HIDRAW` can be used to fix it.
 
 Alternatively, [Boxflat](https://github.com/Lawstorant/boxflat) has "Detection fix" functionality.
 
@@ -232,8 +232,12 @@ Alternatively, [Boxflat](https://github.com/Lawstorant/boxflat) has "Detection f
     ```
     This is only relevant for devices which are, for various reasons, not in a SDL whitelist (yet), or for
     older Steam runtime versions which does not have updated SDL library.
-
-4. If none of that worked, create an issue, where members of the community will try to help you with your specific game
+4. If Proton still can't see your device, try set `PROTON_ENABLE_HIDRAW` environment variable. 
+    ```
+    PROTON_ENABLE_HIDRAW=0x<VID>/0x<PID> %command%
+    ```
+    This is relevant for devices without buttons or without axes entirely, for example: VRS wheelbases, it has only 1 axis.
+5. If none of that worked, create an issue, where members of the community will try to help you with your specific game
 
 ## Links
 
