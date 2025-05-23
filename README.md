@@ -113,7 +113,7 @@ And a [Success case](https://community.granitedevices.com/t/simucube-2-discussio
 [^12]: You need to enable "high torque mode" after device is turned on/plugged in.
 More info here: [asetek_wheelbase_cli](https://github.com/moonrail/asetek_wheelbase_cli)
 [^13]: Some VRS DirectForce Pro units have a "power saving" feature which disables force feedback up until the
-wheel is moved a little. doesn't hurt it's normal performance.
+wheel is moved a little. Doesn't hurt it's normal performance. Happens on Windows as well.
 
 ## hid-pidff
 
@@ -195,26 +195,40 @@ SDL tries to heuristically guess which devices are gamepads and ignores everythi
 means wheels and pedals might be ignored by SDL. This has been partially fixed by adding a
 [whitelist](https://github.com/libsdl-org/SDL/blob/main/src/joystick/SDL_joystick.c#L340) of wheels. This list has
 to be updated continuously with new models being tested.
+These devices will be recognized as joysticks (not gamepads) in Proton. 
 
-Recent updates to SDL created SDL Hint variable to dynamically extend wheel devices list. You need to just
-export `SDL_JOYSTICK_WHEEL_DEVICES=0x<VID>/0x<PID>,0x<VID2>/0x<PID2>` before you launching something.
+Recent updates to SDL created SDL Hint variable to dynamically extend wheel devices list. You need to set `SDL_JOYSTICK_WHEEL_DEVICES` variable like so:
+`SDL_JOYSTICK_WHEEL_DEVICES=0x<VID>/0x<PID>,0x<VID2>/0x<PID2>`.
 
 ## Wine/Proton caveats
 
 ### Joystick detection
 
-Even if the device is ranked well, there may be some small issues regarding SDL wheel detection in Steam.
+Even if the device is ranked well, there may be some small issues regarding wheel detection. This comes from different approaches from different manufactures: some devices has same buttons as XInput gamepads (A, B, X, Y), and can be mistakenly detected as such.
 
-Also, for devices not present in whitelist, Steam uses sandboxed SDL1.2 to detect devices.
+At first you should check if device is detected by your system as joystick. If it does not shows up as joystick in something like `jstest` or `udevadm info` or System settings, you should create udev rule for your specific device.
+
+Create file `99-joystick.rules` in `/etc/udev/rules.d/` with this content (replace VID PID by VID and PID of your device):
+```
+SUBSYSTEM=="input", ATTRS{idVendor}=="VID", ATTRS{idProduct}=="PID", ENV{ID_INPUT_JOYSTICK}="1"
+```
+For example, for VRS DFP file will look like this:
+```
+SUBSYSTEM=="input", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="0355", ENV{ID_INPUT_JOYSTICK}="1"
+```
+Then reload udev rules like so:
+```
+sudo udevadm control --reload
+sudo udevadm trigger
+```
+
+Also, for devices not present in SDL wheels whitelist, Steam uses sandboxed SDL1.2 to detect devices.
 It has one small rule to detect all kinds of joysticks, function
 [EV_IsJoystick()](https://github.com/libsdl-org/SDL-1.2/blob/main/src/joystick/linux/SDL_sysjoystick.c#L382-L398).
 And basically, for the device to be classed as a joystick, it must have either X and Y axes or a X and Y hat, and
 must have a trigger, A button, or 1 button. On some devices Y axis not exists (Logitech G Pro), and therefore, for SDL,
-that device is not a joystick and no need to forward it to the game. Native apps will work perfectly, Wine apps too,
-but not Steam+Proton games. We could fix it by changing descriptor axis, something like rename Rz to Y, and wheel
-will work in Proton now
-
-The environment variable `SDL_JOYSTICK_WHEEL_DEVICES` or `PROTON_ENABLE_HIDRAW` can be used to fix it.
+that device is not a joystick and no need to forward it to the game. Native apps will work perfectly, Wine apps too.
+With Proton 10 all devices classified as Wheels in SDL will be detected in Proton as DInput devices.
 
 Alternatively, [Boxflat](https://github.com/Lawstorant/boxflat) has "Detection fix" functionality.
 
@@ -223,21 +237,22 @@ Alternatively, [Boxflat](https://github.com/Lawstorant/boxflat) has "Detection f
 ## Steam settings for ~all devices and ~all games
 
 1. Turn Steam Input off in game settings
-2. Use recent Proton version for non-native games. 7 version known for having issues with HID devices detection.
-3. If game does not detect your device, try [setting SDL Hint](https://github.com/libsdl-org/SDL/issues/8595)
+2. Use recent Proton version for non-native games. 7 version known for having issues with HID devices detection. 10 version known for fixing various detection bugs.
+3. Use recent SDL library version, if you're using native Steam installation.
+4. Check if your system detects the device as joystick. If not, create corresponding udev rule.
+5. If game still does not detect your device, try [setting SDL Hint](https://github.com/libsdl-org/SDL/issues/8595)
    environment variable in game launch command like so:
 
     ```
     SDL_JOYSTICK_WHEEL_DEVICES=0x<VID>/0x<PID> %command%
     ```
     This is only relevant for devices which are, for various reasons, not in a SDL whitelist (yet), or for
-    older Steam runtime versions which does not have updated SDL library.
-4. If Proton still can't see your device, try set `PROTON_ENABLE_HIDRAW` environment variable. 
+    older Steam runtime versions which does not have updated SDL library with updated lists.
+6. If Proton still can't see your device, you can fallback to hidraw protocol by setting `PROTON_ENABLE_HIDRAW` environment variable. 
     ```
     PROTON_ENABLE_HIDRAW=0x<VID>/0x<PID> %command%
     ```
-    This is relevant for devices without buttons or without axes entirely, for example: VRS wheelbases, it has only 1 axis.
-5. If none of that worked, create an issue, where members of the community will try to help you with your specific game
+7. If none of that worked, create an issue, where members of the community will try to help you with your specific game/device combination.
 
 ## Links
 
