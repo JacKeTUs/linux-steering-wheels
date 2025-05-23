@@ -206,19 +206,26 @@ Recent updates to SDL created SDL Hint variable to dynamically extend wheel devi
 
 Even if the device is ranked well, there may be some small issues regarding wheel detection. This comes from different approaches from different manufactures: some devices has same buttons as XInput gamepads (A, B, X, Y), and can be mistakenly detected as such.
 
-At first you should check if device is detected by your system as joystick. If it does not shows up as joystick in something like `jstest` or `udevadm info` or System settings, you should create udev rule for your specific device.
+At first you should check if device is detected by your system as joystick. If it does not shows up as joystick in something like `jstest` or `udevadm info` or System settings, you should create new hwdb entry for your specific device.
 
-Create file `99-joystick.rules` in `/etc/udev/rules.d/` with this content (replace VID PID by VID and PID of your device):
+Create file `/etc/udev/hwdb.d/99-simracing.hwdb` with this content (replace VID PID by lowercase VID and PID of your device):
 ```
-SUBSYSTEM=="input", ATTRS{idVendor}=="VID", ATTRS{idProduct}=="PID", ENV{ID_INPUT_JOYSTICK}="1"
+id-input:modalias:input:*vVIDpPID*
+ ID_INPUT_ACCELEROMETER=0
+ ID_INPUT_JOYSTICK=1
 ```
+This will set JOYSTICK type to the device, and explicitly set ACCELEROMETER to 0 (if you have, say, pedals with 3 axis).
+
 For example, for VRS DFP file will look like this:
 ```
-SUBSYSTEM=="input", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="0355", ENV{ID_INPUT_JOYSTICK}="1"
+# VRS DFP
+id-input:modalias:input:*v0483pa355*
+ ID_INPUT_ACCELEROMETER=0
+ ID_INPUT_JOYSTICK=1
 ```
-Then reload udev rules like so:
+Then reload hwdb database and reload all udev rules like so:
 ```
-sudo udevadm control --reload
+sudo systemd-hwdb update
 sudo udevadm trigger
 ```
 
