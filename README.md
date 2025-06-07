@@ -212,7 +212,7 @@ Check out https://github.com/JacKeTUs/simracing-hwdb, community-driven collectio
 
 If your device is not on the repository above, you can create hwdb entry yourself (and consider contributing to the collection)
 
-Create file `/etc/udev/hwdb.d/99-simracing.hwdb` with this content (replace VID PID by lowercase VID and PID of your device):
+Create file `/etc/udev/hwdb.d/99-simracing.hwdb` with this content (replace VID PID by upper case VID and PID of your device):
 ```
 id-input:modalias:input:*vVIDpPID*
  ID_INPUT_ACCELEROMETER=0
@@ -223,7 +223,7 @@ This will set JOYSTICK type to the device, and explicitly set ACCELEROMETER to 0
 For example, for VRS DFP file will look like this:
 ```
 # VRS DFP
-id-input:modalias:input:*v0483pa355*
+id-input:modalias:input:*v0483pA355*
  ID_INPUT_ACCELEROMETER=0
  ID_INPUT_JOYSTICK=1
 ```
