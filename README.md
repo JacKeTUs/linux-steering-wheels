@@ -96,7 +96,8 @@ Read also related sections for each driver below for more information.
 | Thrustmaster | TX                   | 044f | b669 | Gold     | hid-tmff2[^9] | |
 | Thrustmaster | TS-XV                | 044f |      | Gold     | hid-tmff2[^9] | |
 | Turtle Beach |                      |      |      |          | | |
-| VRS          | DirectForce Pro      | 0483 | a355 | Platinum[^13] | hid-universal-pidff[^1] | Works[^10] |
+| VRS          | DirectForce Pro (including uDFP20, DFP15, DFP20)      | 0483 | a355 | Platinum[^13] | hid-universal-pidff[^1] | Works[^10] |
+
 
 [^1]: Full native support since Linux 6.15. Plug and play
 [^2]: Default driver lacks most effects. Use [patched driver](https://github.com/berarma/new-lg4ff).
