@@ -106,7 +106,7 @@ Read also related sections for each driver below for more information.
 [^5]: HID PID with caveats. Use [patched driver](https://github.com/JacKeTUs/simagic-ff).
 [^6]: Only works with firmware versions up to v159.
 [^7]: Custom module [hid-fanatecff](https://github.com/gotzl/hid-fanatecff)
-[^8]: Full USB command queue errors. Using [ffbwrap]() can help in some situations.
+[^8]: Full USB command queue errors. Using [ffbwrap](https://github.com/berarma/ffbtools/blob/master/docs/ffbwrap.md) can help in some situations.
 [^9]: Custom module [hid-tmff2](https://github.com/Kimplul/hid-tmff2).
 [^10]: See section on [joystick detection](#joystick-detection).
 [^11]: Read [here about how to setup Simucube base](https://granitedevices.com/wiki/Using_Simucube_wheel_base_in_Linux).
