@@ -123,7 +123,7 @@ HID PID is a standard for USB devices which includes FFB. Although this standard
 low end wheels don't implement it, but most high and some middle end wheels do.
 
 With Linux 6.15, the generic `hid-pidff` driver was upgraded and made more compatible with wide range of devices out of
-the box. Some devies still need some fixes like fixed direction for Moza deivces (caused by a bug in SDL which was
+the box. Some devices still need some fixes like fixed direction for Moza deivces (caused by a bug in SDL which was
 [fixed](https://github.com/libsdl-org/SDL/pull/12031)), permissive device dontrol field search for VRS. More
 importantly, Moza, Camus and others define more than 80 buttons which is a current Linux
 limitation for joysticks and gamepads.
