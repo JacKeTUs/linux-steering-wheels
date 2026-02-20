@@ -36,22 +36,22 @@ Read also related sections for each driver below for more information.
 
 | Manufacturer | Device names         | VID  | PID  | Support  | Driver        | Proton compatibility |
 |--------------|----------------------|------|------|----------|-----------------|--------------|
-| Asetek       | Invicta              | 2433 | f300 | Gold[^12] | hid-universal-pidff[^1] | Works |
-| Asetek       | Forte                | 2433 | f301 | Gold[^12] | hid-universal-pidff[^1] | Works |
-| Asetek       | La Prima             | 2433 | f303 | Gold[^12] | hid-universal-pidff[^1] | Works |
-| Asetek       | Tony Kannan          | 2433 | f306 | Gold[^12] | hid-universal-pidff[^1] | Works |
-| Cammus       | C5                   | 3416 | 0301 | Platinum | hid-universal-pidff[^1] | Works[^10] |
-| Cammus       | C12                  | 3416 | 0302 | Platinum | hid-universal-pidff[^1] | Works[^10] |
-| Fanatec      | CSL Elite            | 0eb7 | 0e03 | Gold     | hid-fanatecff[^7] | |
-| Fanatec      | CSL Elite (PS4)      | 0eb7 | 0005 | Gold     | hid-fanatecff[^7] | |
-| Fanatec      | DD                   | 0eb7 | 0020 | Gold     | hid-fanatecff[^7] | |
-| Fanatec      | DD Pro               | 0eb7 | 0020 | Gold     | hid-fanatecff[^7] | |
-| Fanatec      | Clubsport DD         | 0eb7 | 0020 | Gold     | hid-fanatecff[^7] | |
-| Fanatec      | ClubSport Wheel Base V2 |0eb7 | 0001 | Silver | hid-fanatecff[^7] | |
-| Fanatec      | ClubSport Wheel Base V2.5 | 0eb7 |0004 | Silver | hid-fanatecff[^7] | |
-| Fanatec      | Podium DD1           | 0eb7 | 0006 | Silver   | hid-fanatecff[^7] | |
-| Fanatec      | Podium DD2           | 0eb7 | 0007 | Silver   | hid-fanatecff[^7] | |
-| Fanatec      | CSR Elite            | 0eb7 | 0011 | Silver   | hid-fanatecff[^7] | |
+| Asetek       | Invicta              | 2433 | f300 | Gold[^11] | hid-universal-pidff[^1] | Works[^13] |
+| Asetek       | Forte                | 2433 | f301 | Gold[^11] | hid-universal-pidff[^1] | Works[^13] |
+| Asetek       | La Prima             | 2433 | f303 | Gold[^11] | hid-universal-pidff[^1] | Works[^13] |
+| Asetek       | Tony Kannan          | 2433 | f306 | Gold[^11] | hid-universal-pidff[^1] | Works[^13] |
+| Cammus       | C5                   | 3416 | 0301 | Platinum | hid-universal-pidff[^1] | Works[^9] |
+| Cammus       | C12                  | 3416 | 0302 | Platinum | hid-universal-pidff[^1] | Works[^9] |
+| Fanatec      | CSL Elite            | 0eb7 | 0e03 | Gold     | hid-fanatecff[^6] | |
+| Fanatec      | CSL Elite (PS4)      | 0eb7 | 0005 | Gold     | hid-fanatecff[^6] | |
+| Fanatec      | DD                   | 0eb7 | 0020 | Gold     | hid-fanatecff[^6] | |
+| Fanatec      | DD Pro               | 0eb7 | 0020 | Gold     | hid-fanatecff[^6] | |
+| Fanatec      | Clubsport DD         | 0eb7 | 0020 | Gold     | hid-fanatecff[^6] | |
+| Fanatec      | ClubSport Wheel Base V2 |0eb7 | 0001 | Silver | hid-fanatecff[^6] | |
+| Fanatec      | ClubSport Wheel Base V2.5 | 0eb7 |0004 | Silver | hid-fanatecff[^6] | |
+| Fanatec      | Podium DD1           | 0eb7 | 0006 | Silver   | hid-fanatecff[^6] | |
+| Fanatec      | Podium DD2           | 0eb7 | 0007 | Silver   | hid-fanatecff[^6] | |
+| Fanatec      | CSR Elite            | 0eb7 | 0011 | Silver   | hid-fanatecff[^6] | |
 | FFBeast      | Wheel                | 045b | 59d7 | Platinum | hid-universal-pidff[^1]  | Works |
 | Logitech     | MOMO Wheel           | 046d | c295 | Platinum | hid-logitech[^2] | Works |
 | Logitech     | DFP                  | 046d | c298 | Platinum | hid-logitech[^2] | Works |
@@ -59,10 +59,10 @@ Read also related sections for each driver below for more information.
 | Logitech     | G25                  | 046d | c29b | Platinum | hid-logitech[^2] | Works |
 | Logitech     | G27                  | 046d | c29b | Platinum | hid-logitech[^2] | Works |
 | Logitech     | G29                  | 046d | c24f | Platinum | hid-logitech[^2] | Works |
-| Logitech     | G920                 | 046d | c262 | Silver   | hid-logitech-hidpp[^8] | Works |
-| Logitech     | G923 (Xbox edition)  | 046d | c26d | Silver   | hid-logitech-hidpp[^8] | Works |
+| Logitech     | G920                 | 046d | c262 | Silver   | hid-logitech-hidpp[^7] | Works |
+| Logitech     | G923 (Xbox edition)  | 046d | c26d | Silver   | hid-logitech-hidpp[^7] | Works |
 | Logitech     | G923 (PS edition)    | 046d | c267 | Platinum | hid-logitech[^3] | Works |
-| Logitech     | G Pro                | 046d | c272 | Bronze   | hid-logitech-hidpp[^4] | Works[^10] |
+| Logitech     | G Pro                | 046d | c272 | Bronze   | hid-logitech-hidpp[^4] | Works[^9] |
 | Moza         | R3                   | 346e | 0005 | Platinum | hid-universal-pidff[^1] | Works |
 | Moza         | R5                   | 346e | 0004 | Platinum | hid-universal-pidff[^1] | Works |
 | Moza         | R9  (v1/v2/v3)       | 346e | 0002 | Platinum | hid-universal-pidff[^1] | Works |
@@ -74,47 +74,52 @@ Read also related sections for each driver below for more information.
 | PXN          | V12                  | 11ff | 1212 | Gold     | hid-universal-pidff[^1] | Works |
 | PXN          | V12 Lite             | 11ff | 1112 | Gold     | hid-universal-pidff[^1] | Works |
 | PXN          | V12 Lite (SE?)       | 11ff | 1211 | Gold     | hid-universal-pidff[^1] | Works |
-| Lite Star    | GT987 FF	      | 11ff | 2141 | Gold     | hid-universal-pidff[^1] | Works |
-| Simagic      | M10                  | 0483 | 0522 | Silver   | hid-pidff[^5] | Works  |
-| Simagic      | Alpha Mini           | 0483 | 0522 | Silver/Broken[^6] :warning: | hid-pidff[^5] | Works |
-| Simagic      | Alpha                | 0483 | 0522 | Silver/Broken[^6] :warning: | hid-pidff[^5] | Works |
-| Simagic      | Alpha Ultimate       | 0483 | 0522 | Silver/Broken[^6] :warning: | hid-pidff[^5] | Works |
-| Simucube     | Simucube 1           | 16d0 | 0d5a | Silver   | hid-pidff[^1] | Works[^11] |
-| Simucube     | Simucube 2 Sport     | 16d0 | 0d61 | Silver   | hid-pidff[^1] | Works[^11] |
-| Simucube     | Simucube 2 Pro       | 16d0 | 0d60 | Silver   | hid-pidff[^1] | Works[^11] |
-| Simucube     | Simucube 2 Ultimate  | 16d0 | 0d5f | Silver   | hid-pidff[^1] | Works[^11] |
+| PXN          | VD6                  | ?    | ?    | Gold     | hid-universal-pidff[^1] | Works |
+| Lite Star    | GT987 FF	          | 11ff | 2141 | Gold     | hid-universal-pidff[^1] | Works |
+| Simagic      | M10                  | 0483 | 0522 | Silver | hid-pidff[^1] | Works  |
+| Simagic      | Alpha Mini           | 0483 | 0522 | Silver | simagic-ff[^5] | Works |
+| Simagic      | Alpha                | 0483 | 0522 | Silver | simagic-ff[^5] | Works |
+| Simagic      | Alpha Ultimate       | 0483 | 0522 | Silver | simagic-ff[^5] | Works |
+| Simagic      | EVO Sport            | 3670 | 0500 | Silver | simagic-ff[^5] | Works |
+| Simagic      | EVO                  | 3670 | 0501 | Silver | simagic-ff[^5] | Works |
+| Simagic      | EVO Pro              | 3670 | 0502 | Silver | simagic-ff[^5] | Works |
+| Simucube     | Simucube 1           | 16d0 | 0d5a | Silver   | hid-pidff[^1] | Works[^10] |
+| Simucube     | Simucube 2 Sport     | 16d0 | 0d61 | Silver   | hid-pidff[^1] | Works[^10] |
+| Simucube     | Simucube 2 Pro       | 16d0 | 0d60 | Silver   | hid-pidff[^1] | Works[^10] |
+| Simucube     | Simucube 2 Ultimate  | 16d0 | 0d5f | Silver   | hid-pidff[^1] | Works[^10] |
+| Simucube     | Simucube 3    |      |      | Not tested   | | We can only speculate that PID descriptor is used in their new Simucube Hub. If that's the case, then wheelbase will work out of the box[^1] |
 | SimXperience | AccuForce Pro        | 1fc9 | 804c | Platinum | hid-pidff[^1] |  |
 | Thrustmaster | Nascar Pro FF2       | 044f | b605 |          | hid-tmff | |
 | Thrustmaster | FGT Rumble Force     | 044f | b651 |          | hid-tmff | |
 | Thrustmaster | RGT FF CLUTCH        | 044f | b653 |          | hid-tmff | |
 | Thrustmaster | FGT Force Feedback   | 044f | b654 |          | hid-tmff | |
 | Thrustmaster | F430 Force Feedback  | 044f | b65a |          | hid-tmff | |
-| Thrustmaster | T248                 | 044f | b696 | Gold     | hid-tmff2[^9] | |
-| Thrustmaster | T300RS (PS3 mode)    | 044f | b66e | Gold     | hid-tmff2[^9] | |
-| Thrustmaster |T300RS (PS3 advanced mode)|044f|b66f| Gold     | hid-tmff2[^9] | |
-| Thrustmaster | T300RS (PS4 mode)    | 044f | b66d | Gold     | hid-tmff2[^9] | |
-| Thrustmaster | TX                   | 044f | b669 | Gold     | hid-tmff2[^9] | |
-| Thrustmaster | TS-XV                | 044f |      | Gold     | hid-tmff2[^9] | |
+| Thrustmaster | T248                 | 044f | b696 | Gold     | hid-tmff2[^8] | |
+| Thrustmaster | T300RS (PS3 mode)    | 044f | b66e | Gold     | hid-tmff2[^8] | |
+| Thrustmaster |T300RS (PS3 advanced mode)|044f|b66f| Gold     | hid-tmff2[^8] | |
+| Thrustmaster | T300RS (PS4 mode)    | 044f | b66d | Gold     | hid-tmff2[^8] | |
+| Thrustmaster | TX                   | 044f | b669 | Gold     | hid-tmff2[^8] | |
+| Thrustmaster | TS-XV                | 044f |      | Gold     | hid-tmff2[^8] | |
 | Turtle Beach |                      |      |      |          | | |
-| VRS          | DirectForce Pro (including uDFP20, DFP15, DFP20)      | 0483 | a355 | Platinum[^13] | hid-universal-pidff[^1] | Works[^10] |
+| VRS          | DirectForce Pro (including uDFP20, DFP15, DFP20) | 0483 | a355 | Platinum[^12] | hid-universal-pidff[^1] | Works[^9] |
 
 
 [^1]: Full native support since Linux 6.15. Plug and play
 [^2]: Default driver lacks most effects. Use [patched driver](https://github.com/berarma/new-lg4ff).
 [^3]: Not supported by default driver. Use [patched driver](https://github.com/berarma/new-lg4ff).
-[^3]: Not supported by default driver. Use [patched driver](https://github.com/JacKeTUs/hid-logitech-hidpp).
-[^5]: HID PID with caveats. Use [patched driver](https://github.com/JacKeTUs/simagic-ff).
-[^6]: Only works with firmware versions up to v159.
-[^7]: Custom module [hid-fanatecff](https://github.com/gotzl/hid-fanatecff)
-[^8]: Full USB command queue errors. Using [ffbwrap](https://github.com/berarma/ffbtools/blob/master/docs/ffbwrap.md) can help in some situations.
-[^9]: Custom module [hid-tmff2](https://github.com/Kimplul/hid-tmff2).
-[^10]: See section on [joystick detection](#joystick-detection).
-[^11]: Read [here about how to setup Simucube base](https://granitedevices.com/wiki/Using_Simucube_wheel_base_in_Linux).
+[^4]: Not supported by default driver. Use [patched driver](https://github.com/JacKeTUs/hid-logitech-hidpp).
+[^5]: Slightly changed PID protocol, without PID descriptor. Use [simagic-ff] driver](https://github.com/JacKeTUs/simagic-ff).
+[^6]: Custom module [hid-fanatecff](https://github.com/gotzl/hid-fanatecff)
+[^7]: Full USB command queue errors. Using [ffbwrap](https://github.com/berarma/ffbtools/blob/master/docs/ffbwrap.md) can help in some situations.
+[^8]: Custom module [hid-tmff2](https://github.com/Kimplul/hid-tmff2).
+[^9]: See section on [joystick detection](#joystick-detection).
+[^10]: Read [here about how to setup Simucube base](https://granitedevices.com/wiki/Using_Simucube_wheel_base_in_Linux).
 And a [Success case](https://community.granitedevices.com/t/simucube-2-discussion-thread/2664/1606).
-[^12]: You need to enable "high torque mode" after device is turned on/plugged in.
+[^11]: You need to enable "high torque mode" after device is turned on/plugged in.
 More info here: [asetek_wheelbase_cli](https://github.com/moonrail/asetek_wheelbase_cli)
-[^13]: Some VRS DirectForce Pro units have a "power saving" feature which disables force feedback up until the
+[^12]: Some VRS DirectForce Pro units have a "power saving" feature which disables force feedback up until the
 wheel is moved a little. Doesn't hurt it's normal performance. Happens on Windows as well.
+[^13]: See [reconnecting issue](#Device is infinitely rebooting)
 
 ## hid-pidff
 
@@ -190,6 +195,39 @@ fix the issue.
 [ffbwrap](https://github.com/berarma/ffbtools) can be used to work around it when the application can't be configured
 to send commands at a lower rate. Needs testing.
 
+## Device is infinitely rebooting
+
+1. All of Asetek products
+2. Simagic GT Neo
+
+Some devices from the list have internal function/bug, which will reboot the device internals if it's not polled. Device reconnection won't happen if anything opens the device (game, tool, etc), so it only affects idle state. Windows polls the devices all the time by default, Linux does this more efficiently and starts polling only when device file is opened by some application.
+You can force `HID_QUIRK_ALWAYS_POLL` for these devices. You will need to change kernel cmdline and regenerate initramfs.
+
+Here is instructions for how to do it in `grub`:
+1. Open your `/etc/default/grub`
+2. Find line `GRUB_CMDLINE_LINUX_DEFAULT`
+3. In the end of this string, add `usbhid.quirks=0xVID:0xPID:0x0400`, where `0xVID` is your device VID, and `0xPID` is your device PID
+4. Save file, regenerate grub config
+  ```
+  grub-mkconfig -o /boot/grub/grub.cfg
+  ```
+5. Regenerate initramfs
+  * Debian
+    ```
+    sudo update-initramfs -u
+    ```
+  * Arch
+    ```
+    sudo mkinitcpio -P
+    ```
+
+For distros which using rpm-ostree (Fedora), this line should be enough:
+```
+sudo rpm-ostree kargs --append=usbhid.quirks=0xVID:0xPID:0x0400
+```
+
+In the end, consider sending VID PID of the device somewhere we can see (issues), so we can send patches to the kernel, to set this quirk by default on these devices!
+
 ## SDL
 
 SDL tries to heuristically guess which devices are gamepads and ignores everything that doesn't look like one. This
@@ -242,17 +280,17 @@ must have a trigger, A button, or 1 button. On some devices Y axis not exists (L
 that device is not a joystick and no need to forward it to the game. Native apps will work perfectly, Wine apps too.
 With Proton 10 all devices classified as Wheels in SDL will be detected in Proton as DInput devices.
 
-Alternatively, [Boxflat](https://github.com/Lawstorant/boxflat) has "Detection fix" functionality.
+Alternatively, [Boxflat](https://github.com/Lawstorant/boxflat) has "Detection fix" functionality for Moza devices.
 
 [Link to the Proton issue](https://github.com/ValveSoftware/Proton/issues/5126)
 
 ## Steam settings for ~all devices and ~all games
 
 1. Turn Steam Input off in game settings
-2. Use recent Proton version for non-native games. 7 version known for having issues with HID devices detection. 10 version known for fixing various detection bugs.
+2. Use recent Proton version for non-native games. 7 version known for having issues with HID devices detection. 10 version known for fixing various detection bugs, for devices without axis (shifters, buttonboxes) and such.
 3. Use recent SDL library version, if you're using native Steam installation.
-4. Check if your system detects the device as joystick. If not, create corresponding udev rule.
-5. If game still does not detect your device, try [setting SDL Hint](https://github.com/libsdl-org/SDL/issues/8595)
+4. Check if your system detects the device as joystick. If not, create corresponding hwdb entry (see [Joystick detection](#Joystick detection)). When your system detects your device as joystick, you can try it in games.
+5. If game still does not detect your device, try [setting SDL Hint](https://github.com/libsdl-org/SDL/issues/8595) 
    environment variable in game launch command like so:
 
     ```
@@ -260,7 +298,7 @@ Alternatively, [Boxflat](https://github.com/Lawstorant/boxflat) has "Detection f
     ```
     This is only relevant for devices which are, for various reasons, not in a SDL whitelist (yet), or for
     older Steam runtime versions which does not have updated SDL library with updated lists.
-6. If Proton still can't see your device, you can fallback to hidraw protocol by setting `PROTON_ENABLE_HIDRAW` environment variable. 
+6. If Proton still can't see your device, you can try and fallback to hidraw protocol by setting `PROTON_ENABLE_HIDRAW` environment variable. This should be used as last resort, as some versions of Proton are not correctly passing FFB to the hidraw device.
     ```
     PROTON_ENABLE_HIDRAW=0x<VID>/0x<PID> %command%
     ```
