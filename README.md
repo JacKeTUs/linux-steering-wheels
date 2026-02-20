@@ -100,6 +100,7 @@ Read also related sections for each driver below for more information.
 | Thrustmaster | T300RS (PS4 mode)    | 044f | b66d | Gold     | hid-tmff2[^8] | |
 | Thrustmaster | TX                   | 044f | b669 | Gold     | hid-tmff2[^8] | |
 | Thrustmaster | TS-XV                | 044f |      | Gold     | hid-tmff2[^8] | |
+| Thrustmaster | TMX                  | 044f | b67f | Gold     | hid-tminit[^14] | |
 | Turtle Beach |                      |      |      |          | | |
 | VRS          | DirectForce Pro (including uDFP20, DFP15, DFP20) | 0483 | a355 | Platinum[^12] | hid-universal-pidff[^1] | Works[^9] |
 
@@ -120,6 +121,8 @@ More info here: [asetek_wheelbase_cli](https://github.com/moonrail/asetek_wheelb
 [^12]: Some VRS DirectForce Pro units have a "power saving" feature which disables force feedback up until the
 wheel is moved a little. Doesn't hurt it's normal performance. Happens on Windows as well.
 [^13]: See [reconnecting issue](#Device is infinitely rebooting)
+[^14]: Custom module [hid-tminit](https://github.com/NKkrisz/Thrustmaster_TMX_Linux_Driver).
+
 
 ## hid-pidff
 
