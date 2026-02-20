@@ -111,7 +111,7 @@ Read also related sections for each driver below for more information.
 [^2]: Default driver lacks most effects. Use [patched driver](https://github.com/berarma/new-lg4ff).
 [^3]: Not supported by default driver. Use [patched driver](https://github.com/berarma/new-lg4ff).
 [^4]: Not supported by default driver. Use [patched driver](https://github.com/JacKeTUs/hid-logitech-hidpp).
-[^5]: Slightly changed PID protocol, without PID descriptor. Use [simagic-ff] driver](https://github.com/JacKeTUs/simagic-ff).
+[^5]: Slightly changed PID protocol, without PID descriptor. Use [simagic-ff](https://github.com/JacKeTUs/simagic-ff) driver.
 [^6]: Custom module [hid-fanatecff](https://github.com/gotzl/hid-fanatecff)
 [^7]: Full USB command queue errors. Using [ffbwrap](https://github.com/berarma/ffbtools/blob/master/docs/ffbwrap.md) can help in some situations.
 [^8]: Custom module [hid-tmff2](https://github.com/Kimplul/hid-tmff2).
@@ -122,7 +122,7 @@ And a [Success case](https://community.granitedevices.com/t/simucube-2-discussio
 More info here: [asetek_wheelbase_cli](https://github.com/moonrail/asetek_wheelbase_cli)
 [^12]: Some VRS DirectForce Pro units have a "power saving" feature which disables force feedback up until the
 wheel is moved a little. Doesn't hurt it's normal performance. Happens on Windows as well.
-[^13]: See [reconnecting issue](#Device is infinitely rebooting)
+[^13]: See [reconnecting issue](#device-is-infinitely-rebooting)
 [^14]: Custom module [hid-tminit](https://github.com/NKkrisz/Thrustmaster_TMX_Linux_Driver).
 
 
@@ -294,7 +294,7 @@ Alternatively, [Boxflat](https://github.com/Lawstorant/boxflat) has "Detection f
 1. Turn Steam Input off in game settings
 2. Use recent Proton version for non-native games. 7 version known for having issues with HID devices detection. 10 version known for fixing various detection bugs, for devices without axis (shifters, buttonboxes) and such.
 3. Use recent SDL library version, if you're using native Steam installation.
-4. Check if your system detects the device as joystick. If not, create corresponding hwdb entry (see [Joystick detection](#Joystick detection)). When your system detects your device as joystick, you can try it in games.
+4. Check if your system detects the device as joystick. If not, create corresponding hwdb entry (see [Joystick detection](#joystick-detection)). When your system detects your device as joystick, you can try it in games.
 5. If game still does not detect your device, try [setting SDL Hint](https://github.com/libsdl-org/SDL/issues/8595) 
    environment variable in game launch command like so:
 
