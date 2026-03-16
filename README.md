@@ -75,7 +75,7 @@ Read also related sections for each driver below for more information.
 | PXN          | V12 Lite             | 11ff | 1112 | Gold     | hid-universal-pidff[^1] | Works |
 | PXN          | V12 Lite (SE?)       | 11ff | 1211 | Gold     | hid-universal-pidff[^1] | Works |
 | PXN          | VD4                  |      |      | Gold     | hid-universal-pidff[^1] | Works |
-| PXN          | VD6                  |      |      | Gold     | hid-universal-pidff[^1] | Works |
+| PXN          | VD6                  | 36e6 | 400f | Gold     | hid-universal-pidff[^1] | Works |
 | PXN          | VD10                 |      |      | Gold     | hid-universal-pidff[^1] | Works |
 | Lite Star    | GT987 FF	          | 11ff | 2141 | Gold     | hid-universal-pidff[^1] | Works |
 | Simagic      | M10                  | 0483 | 0522 | Silver | hid-pidff[^1] | Works  |
