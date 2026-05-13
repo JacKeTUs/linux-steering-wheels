@@ -3,6 +3,31 @@ from time import sleep, time
 
 from evdev import InputDevice, ecodes, ff, list_devices
 
+"""
+==============================================================================
+Project:     Universal Constant-Force Spring Emulator
+Author:      Stan Swanborn
+Description: This script provides a software-based "Spring" effect for Force
+             Feedback (FFB) steering wheels on Linux. It is specifically
+             designed for Direct Drive (DD) wheelbases that may lack native
+             FF_SPRING support.
+
+Functionality:
+    1. Auto-detects the first available Force Feedback device.
+        1.1 Manual override for input event available.
+    2. Monitors the wheel's ABS_X axis position.
+    3. Calculates a reactive centering force using a configurable Root-Curve.
+    4. Updates the FF_CONSTANT effect at high frequency (up to 1000Hz).
+
+Usage:
+    Run WITHOUT sudo/root privileges, it is able to see any input device
+        evtest would be able to see. If it cannot find your device, make a
+        custom udev rule allowing access on the user level.
+
+    Adjust MAX_FORCE_PERCENT and POWER_FACTOR to tune the feel.
+==============================================================================
+"""
+
 # ================== CONFIG ==================
 DEVICE_PATH = None  # When set to None, we will find the first Force Feedback device. Override here if necessary with correct /dev/input/eventXX
 MIN_UPDATE_INTERVAL = 0.001  # 1ms (1000Hz) - Max precision for DD
