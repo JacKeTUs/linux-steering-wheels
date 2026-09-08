@@ -103,7 +103,7 @@ Read also related sections for each driver below for more information.
 | Thrustmaster | TX                   | 044f | b669 | Gold     | hid-tmff2[^8] | |
 | Thrustmaster | TS-XV                | 044f |      | Gold     | hid-tmff2[^8] | |
 | Thrustmaster | TMX                  | 044f | b67f | Gold     | hid-tminit[^14] | |
-| Turtle Beach |                      |      |      |          | | |
+| Turtle Beach | Velocity One         | 10f5 | 7077 | Platinum | hid-universal-pidff[^1] | Works |
 | VRS          | DirectForce Pro (including uDFP20, DFP15, DFP20) | 0483 | a355 | Platinum[^12] | hid-universal-pidff[^1] | Works[^9] |
 
 
