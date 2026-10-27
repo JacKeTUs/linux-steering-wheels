@@ -104,6 +104,7 @@ Read also related sections for each driver below for more information.
 | Thrustmaster | TS-XV                | 044f |      | Gold     | hid-tmff2[^8] | |
 | Thrustmaster | TMX                  | 044f | b67f | Gold     | hid-tminit[^14] | |
 | Turtle Beach | VelocityOne Race     | 10f5 | 7077 | Platinum | hid-universal-pidff[^1] | Works |
+| VNM          | Direct Drive Xtreme 32Nm    | 0483 | a3d5 | Gold     | hid-pidff[^1] | Works |
 | VRS          | DirectForce Pro (including uDFP20, DFP15, DFP20) | 0483 | a355 | Platinum[^12] | hid-universal-pidff[^1] | Works[^9] |
 
 
